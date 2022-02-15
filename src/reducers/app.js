@@ -1,9 +1,5 @@
 const initialState = {};
 
-const appReducer = (state = initialState, action) => {
-  return {
-    state
-  };
-};
+const appReducer = (state = initialState, action) => state;
 
 export default appReducer;
