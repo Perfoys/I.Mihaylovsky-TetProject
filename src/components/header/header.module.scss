@@ -1,0 +1,12 @@
+.header {
+    padding: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: solid 1px black;
+
+    .title {
+        color: black;
+        font-size: 20px;
+    }
+}
