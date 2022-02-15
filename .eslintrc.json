@@ -20,5 +20,6 @@
         "react"
     ],
     "rules": {
+        "semi": ["error", "always"]
     }
 }
