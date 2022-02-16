@@ -21,7 +21,7 @@
     ],
     "rules": {
         "semi": ["error", "always"],
-        "import/order": ["error", {"groups": ["external", "builtin", "internal"]}]
-        
+        "import/order": ["error", {"groups": ["external", "builtin", "internal"]}],
+        "indent": ["error", 2]
     }
 }

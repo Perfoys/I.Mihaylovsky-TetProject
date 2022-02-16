@@ -4,12 +4,12 @@ import Timer from './Timer';
 
 const Header = ({ sprint }) => {
   return (
-        <header className={style.header}>
-            <h1 className={style.title}>{ sprint.title }</h1>
-            <div>{ sprint.startDate.toDateString() }</div>
-            <div>{ sprint.endDate.toDateString() }</div>
-            <Timer endDate={sprint.endDate}/>
-        </header>
+    <header className={style.header}>
+      <h1 className={style.title}>{ sprint.title }</h1>
+      <div>{ sprint.startDate.toDateString() }</div>
+      <div>{ sprint.endDate.toDateString() }</div>
+      <Timer endDate={sprint.endDate}/>
+    </header>
   );
 };
 

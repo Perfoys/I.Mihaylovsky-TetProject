@@ -18,10 +18,10 @@ const HomePage = () => {
   };
 
   return (
-        <div>
-            <Header sprint={defaultSprint}></Header>
-            <MembersTable toDoTasks={defaultSprint.toDoTasks}></MembersTable>
-        </div>
+    <div>
+      <Header sprint={defaultSprint}></Header>
+      <MembersTable toDoTasks={defaultSprint.toDoTasks}></MembersTable>
+    </div>
   );
 };
 

@@ -4,21 +4,21 @@ import style from './column.module.scss';
 
 const Column = ({ title, tasks }) => {
   return (
-        <div className={style.column}>
-            <h1 className={style.title}>{title}</h1>
-            {
-              tasks.map((item) => {
-                return <TaskCard
-                    key={item.id}
-                    id={item.id}
-                    title={item.title}
-                    description={item.description}
-                    priotity={item.priotity}
-                    img={item.img}
-                  />;
-              })
-            }
-        </div>
+    <div className={style.column}>
+      <h1 className={style.title}>{title}</h1>
+      {
+        tasks.map((item) => {
+          return <TaskCard
+            key={item.id}
+            id={item.id}
+            title={item.title}
+            description={item.description}
+            priority={item.priority}
+            img={item.img}
+          />;
+        })
+      }
+    </div>
   );
 };
 
