@@ -5,7 +5,7 @@ const TaskCard = ({ id, title, priority, description, img }) => {
   return (
     <div className={style.card}>
       <div className={style.info}>
-        <h2 className={style.title}>{id} {title}</h2>
+        <h2 className={style.title}>{id}-{title}</h2>
         <div className={style.description}>
           <div>{priority}</div>
           <div>{description}</div>
@@ -17,11 +17,11 @@ const TaskCard = ({ id, title, priority, description, img }) => {
 };
 
 TaskCard.propTypes = {
-  id: PropTypes.number,
-  title: PropTypes.string,
-  priority: PropTypes.string,
-  description: PropTypes.string,
-  img: PropTypes.string
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  priority: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  img: PropTypes.string.isRequired
 };
 
 export default TaskCard;
