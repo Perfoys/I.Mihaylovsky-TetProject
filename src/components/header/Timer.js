@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import calculateTimeLeft from '../helpers/calculateTimeLeft';
 
-const Timer = () => {
-  const endDate = new Date('2022-02-20');
+const Timer = ({ endDate }) => {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(endDate));
 
   useEffect(() => {
@@ -14,6 +14,10 @@ const Timer = () => {
           Days left: {timeLeft.days}
       </div>
   );
+};
+
+Timer.propTypes = {
+  endDate: PropTypes.object
 };
 
 export default Timer;

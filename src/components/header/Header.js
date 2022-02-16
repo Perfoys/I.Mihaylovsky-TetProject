@@ -1,18 +1,20 @@
+import PropTypes from 'prop-types';
 import style from './header.module.scss';
 import Timer from './Timer';
 
-const Header = () => {
-  const startDate = new Date('2022-02-02');
-  const endDate = new Date('2022-02-20');
-
+const Header = ({ sprint }) => {
   return (
         <header className={style.header}>
-            <h1 className={style.title}>Sprint name</h1>
-            <div>{ startDate.toDateString() }</div>
-            <div>{ endDate.toDateString() }</div>
-            <Timer/>
+            <h1 className={style.title}>{ sprint.title }</h1>
+            <div>{ sprint.startDate.toDateString() }</div>
+            <div>{ sprint.endDate.toDateString() }</div>
+            <Timer endDate={sprint.endDate}/>
         </header>
   );
+};
+
+Header.propTypes = {
+  sprint: PropTypes.object
 };
 
 export default Header;
