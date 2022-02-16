@@ -1,8 +1,9 @@
+import { useState } from 'react';
 import Header from '../components/header/Header';
 import MembersTable from '../components/table/MembersTable';
 
 const HomePage = () => {
-  const defaultSprint = {
+  const [defaultSprint] = useState({
     title: 'Sprint title',
     startDate: new Date('2022-02-02'),
     endDate: new Date('2022-02-25'),
@@ -15,7 +16,7 @@ const HomePage = () => {
         img: 'https://www.kindpng.com/picc/m/130-1300217_user-icon-member-icon-png-transparent-png.png'
       }
     ]
-  };
+  });
 
   return (
     <div>
