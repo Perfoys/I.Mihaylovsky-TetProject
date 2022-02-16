@@ -7,7 +7,7 @@ const Timer = ({ endDate }) => {
 
   return (
     <p>
-      Days left: {timeLeft.days}
+      Days left: {timeLeft}
     </p>
   );
 };
