@@ -1,27 +1,14 @@
-import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import Header from '../components/header/Header';
 import MembersTable from '../components/table/MembersTable';
 
 const HomePage = () => {
-  const [defaultSprint] = useState({
-    title: 'Sprint title',
-    startDate: new Date('2022-02-02'),
-    endDate: new Date('2022-02-25'),
-    toDoTasks: [
-      {
-        id: 1,
-        title: 'TASK',
-        priority: 'High',
-        description: 'Apriel inventory of supplies',
-        img: 'https://www.kindpng.com/picc/m/130-1300217_user-icon-member-icon-png-transparent-png.png'
-      }
-    ]
-  });
+  const sprint = useSelector(state => state.sprint);
 
   return (
     <div>
-      <Header sprint={defaultSprint}></Header>
-      <MembersTable toDoTasks={defaultSprint.toDoTasks}></MembersTable>
+      <Header sprint={sprint}></Header>
+      <MembersTable toDoTasks={sprint.toDoTasks}></MembersTable>
     </div>
   );
 };
