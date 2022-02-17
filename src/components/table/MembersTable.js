@@ -14,7 +14,7 @@ const MembersTable = ({ toDoTasks }) => {
 };
 
 MembersTable.propTypes = {
-  toDoTasks: PropTypes.array
+  toDoTasks: PropTypes.array.isRequired
 };
 
 export default MembersTable;

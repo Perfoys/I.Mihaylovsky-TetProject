@@ -14,7 +14,7 @@ const Header = ({ sprint }) => {
 };
 
 Header.propTypes = {
-  sprint: PropTypes.object
+  sprint: PropTypes.object.isRequired
 };
 
 export default Header;
