@@ -1,0 +1,9 @@
+# Compiled binary addons
+build/
+dist/
+
+# Dependency directory
+node_modules
+
+# ignore checking assets folder
+public/

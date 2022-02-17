@@ -7,7 +7,8 @@
         "eslint:recommended",
         "plugin:react/recommended",
         "plugin:react/jsx-runtime",
-        "standard"
+        "standard",
+        "plugin:css-modules/recommended"
     ],
     "parserOptions": {
         "ecmaFeatures": {
@@ -17,7 +18,8 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "css-modules"
     ],
     "rules": {
         "semi": ["error", "always"],
