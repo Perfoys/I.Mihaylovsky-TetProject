@@ -1,12 +1,12 @@
 .header {
-    padding: 2em 4em;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: solid 1px rgb(100, 100, 100);
+  padding: 2em 4em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: solid 1px rgb(100, 100, 100);
 
-    .header__title {
-        color: black;
-        font-size: 32px;
-    }
+  .title {
+    color: black;
+    font-size: 32px;
+  }
 }
