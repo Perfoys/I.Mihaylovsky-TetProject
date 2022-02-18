@@ -8,7 +8,12 @@ const HomePage = () => {
   return (
     <div>
       <Header sprint={sprint}></Header>
-      <MembersTable toDoTasks={sprint.toDoTasks}></MembersTable>
+      <MembersTable
+        toDoTasks={sprint.toDoTasks}
+        inProgressTasks={sprint.inProgressTasks}
+        inReviewTasks={sprint.inReviewTasks}
+        doneTasks={sprint.doneTasks}
+      />
     </div>
   );
 };
