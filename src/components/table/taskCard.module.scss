@@ -5,7 +5,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 0 1px 1px rgb(100 100 100);
+  box-shadow: 0 0 1px 1px #666;
 
   .info {
     text-align: start;
@@ -35,4 +35,8 @@
       max-width: 100%;
     }
   }
+}
+
+.dragging {
+  opacity: 0.5;
 }
