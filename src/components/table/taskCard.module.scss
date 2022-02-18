@@ -19,7 +19,7 @@
       display: flex;
       justify-content: space-between;
 
-      div {
+      .block {
         margin: 0 1%;
       }
     }
@@ -35,8 +35,4 @@
       max-width: 100%;
     }
   }
-}
-
-.dragging {
-  opacity: 0.5;
 }

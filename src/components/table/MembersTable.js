@@ -5,10 +5,10 @@ import style from './membersTable.module.scss';
 const MembersTable = ({ toDoTasks, inProgressTasks, inReviewTasks, doneTasks }) => {
   return (
     <div className={style.table}>
-      <Column title="To do" tasks={toDoTasks}></Column>
-      <Column title="In Progress" tasks={inProgressTasks}></Column>
-      <Column title="In Review" tasks={inReviewTasks}></Column>
-      <Column title="Done" tasks={doneTasks}></Column>
+      <Column title="To do" tasks={toDoTasks} />
+      <Column title="In Progress" tasks={inProgressTasks} />
+      <Column title="In Review" tasks={inReviewTasks} />
+      <Column title="Done" tasks={doneTasks} />
     </div>
   );
 };
