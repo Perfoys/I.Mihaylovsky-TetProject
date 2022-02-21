@@ -8,7 +8,7 @@ const Header = ({ sprint }) => {
       <h1 className={style.title}>{ sprint.title }</h1>
       <div>{ sprint.startDate.toDateString() }</div>
       <div>{ sprint.endDate.toDateString() }</div>
-      <Timer endDate={sprint.endDate}/>
+      <Timer endDate={sprint.endDate} />
     </header>
   );
 };

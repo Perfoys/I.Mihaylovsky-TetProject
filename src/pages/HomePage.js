@@ -7,7 +7,7 @@ const HomePage = () => {
 
   return (
     <div>
-      <Header sprint={sprint}></Header>
+      <Header sprint={sprint} />
       <MembersTable
         toDoTasks={sprint.toDoTasks}
         inProgressTasks={sprint.inProgressTasks}
