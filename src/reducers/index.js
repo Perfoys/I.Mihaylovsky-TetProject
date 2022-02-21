@@ -1,4 +1,4 @@
 import { combineReducers } from 'redux';
-import app from './app';
+import sprintReducer from './sprintReducer';
 
-export default combineReducers({ app });
+export default combineReducers({ sprint: sprintReducer });
