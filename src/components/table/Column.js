@@ -7,14 +7,7 @@ const Column = ({ title, tasks }) => {
     <div className={style.column}>
       <h1 className={style.title}>{title}</h1>
       {tasks.map(item => (
-        <TaskCard
-          key={item.id}
-          id={item.id}
-          title={item.title}
-          description={item.description}
-          priority={item.priority}
-          img={item.img}
-        />
+        <TaskCard key={item.id} task={item}/>
       ))}
     </div>
   );

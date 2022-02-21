@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import style from './taskCard.module.scss';
 
-const TaskCard = ({ id, title, priority, description, img }) => {
+const TaskCard = ({ task: { id, title, priority, description, img } }) => {
   return (
     <div className={style.card}>
       <div className={style.info}>
@@ -17,11 +17,7 @@ const TaskCard = ({ id, title, priority, description, img }) => {
 };
 
 TaskCard.propTypes = {
-  id: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  priority: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  img: PropTypes.string.isRequired
+  task: PropTypes.object.isRequired
 };
 
 export default TaskCard;
