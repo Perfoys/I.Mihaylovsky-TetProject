@@ -5,18 +5,18 @@
   justify-content: space-around;
 
   .toDo {
-    background-color: rgba(210, 50, 50, 75%);
+    background-color: rgba(210, 50, 50, 0.75);
   }
 
   .inProgress {
-    background-color: rgba(230, 110, 50, 75%);
+    background-color: rgba(230, 110, 50, 0.75);
   }
 
   .inReview {
-    background-color: rgba(85, 85, 190, 75%);
+    background-color: rgba(85, 85, 190, 0.75);
   }
 
   .done {
-    background-color: rgba(85, 190, 85, 75%);
+    background-color: rgba(85, 190, 85, 0.75);
   }
 }

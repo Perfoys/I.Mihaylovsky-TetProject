@@ -1,12 +1,15 @@
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { useState, useEffect, useRef } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
 import { ItemTypes } from '../../constants/dragTypes';
+import TimeLeft from './TimeLeft';
 import style from './taskCard.module.scss';
 
-const TaskCard = ({ task: { id, title, priority, description, img, status }, index, moveCard }) => {
+const TaskCard = ({ task: { id, title, priority, description, img, status, deadline }, index, moveCard }) => {
   const ref = useRef(null);
   const [styleCard, setStyleCard] = useState(style.card);
+
   const [, drop] = useDrop(() => ({
     accept: ItemTypes.CARD,
     hover: (item, monitor) => {
@@ -24,6 +27,7 @@ const TaskCard = ({ task: { id, title, priority, description, img, status }, ind
       item.index = hoverIndex;
     }
   }));
+
   const [{ isDragging }, drag] = useDrag(() => ({
     type: ItemTypes.CARD,
     item: { id, title, priority, description, img, status, index },
@@ -45,9 +49,10 @@ const TaskCard = ({ task: { id, title, priority, description, img, status }, ind
       <div className={style.info}>
         <h2 className={style.title}>{id}-{title}</h2>
         <div className={style.description}>
-          <div className={style.block}>{priority}</div>
+          <div className={classNames(style.block, style.priority)}>{priority}</div>
           <div className={style.block}>{description}</div>
         </div>
+        <TimeLeft endDate={deadline} />
       </div>
       <div className={style.img}><img src={img} alt='avatar'></img></div>
     </div>
