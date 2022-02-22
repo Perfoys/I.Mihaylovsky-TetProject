@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { useState, useEffect, useRef } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
 import { ItemTypes } from '../../constants/dragTypes';
-import TimeLeft from './TimeLeft';
+import Timer from '../common/Timer';
 import style from './taskCard.module.scss';
 
 const TaskCard = ({ task: { id, title, priority, description, img, status, deadline }, index, moveCard }) => {
@@ -52,7 +52,7 @@ const TaskCard = ({ task: { id, title, priority, description, img, status, deadl
           <div className={classNames(style.block, style.priority)}>{priority}</div>
           <div className={style.block}>{description}</div>
         </div>
-        <TimeLeft endDate={deadline} />
+        <div>Time left: <Timer endDate={deadline} />d</div>
       </div>
       <div className={style.img}><img src={img} alt='avatar'></img></div>
     </div>
