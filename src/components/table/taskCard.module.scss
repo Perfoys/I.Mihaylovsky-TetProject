@@ -36,3 +36,11 @@
     }
   }
 }
+
+.card:hover {
+  cursor: pointer;
+}
+
+.drag {
+  opacity: 0;
+}
