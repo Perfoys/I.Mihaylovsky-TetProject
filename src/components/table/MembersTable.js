@@ -1,23 +1,33 @@
 import PropTypes from 'prop-types';
 import Column from './Column';
 import style from './membersTable.module.scss';
+import { status } from '../../constants/status';
 
-const MembersTable = ({ toDoTasks, inProgressTasks, inReviewTasks, doneTasks }) => {
+const MembersTable = ({ tasks }) => {
   return (
     <div className={style.table}>
-      <Column title="To do" tasks={toDoTasks} />
-      <Column title="In Progress" tasks={inProgressTasks} />
-      <Column title="In Review" tasks={inReviewTasks} />
-      <Column title="Done" tasks={doneTasks} />
+      <Column
+        title={status.TODO}
+        tasks={tasks.filter(item => item && item.status === status.TODO)}
+      />
+      <Column
+        title={status.INPROGRESS}
+        tasks={tasks.filter(item => item && item.status === status.INPROGRESS)}
+      />
+      <Column
+        title={status.INREVIEW}
+        tasks={tasks.filter(item => item && item.status === status.INREVIEW)}
+      />
+      <Column
+        title={status.DONE}
+        tasks={tasks.filter(item => item && item.status === status.DONE)}
+      />
     </div>
   );
 };
 
 MembersTable.propTypes = {
-  toDoTasks: PropTypes.array.isRequired,
-  inProgressTasks: PropTypes.array.isRequired,
-  inReviewTasks: PropTypes.array.isRequired,
-  doneTasks: PropTypes.array.isRequired
+  tasks: PropTypes.array.isRequired
 };
 
 export default MembersTable;
