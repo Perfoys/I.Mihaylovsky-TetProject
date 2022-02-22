@@ -8,18 +8,22 @@ const MembersTable = ({ tasks }) => {
     <div className={style.table}>
       <Column
         title={status.TODO}
+        titleStyle={style.toDo}
         tasks={tasks.filter(item => item && item.status === status.TODO)}
       />
       <Column
         title={status.INPROGRESS}
+        titleStyle={style.inProgress}
         tasks={tasks.filter(item => item && item.status === status.INPROGRESS)}
       />
       <Column
         title={status.INREVIEW}
+        titleStyle={style.inReview}
         tasks={tasks.filter(item => item && item.status === status.INREVIEW)}
       />
       <Column
         title={status.DONE}
+        titleStyle={style.done}
         tasks={tasks.filter(item => item && item.status === status.DONE)}
       />
     </div>

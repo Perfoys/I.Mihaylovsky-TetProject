@@ -4,11 +4,13 @@
   flex-direction: column;
   justify-content: start;
   min-height: 50vh;
-  min-width: 200px;
-  background-color: #eee;
-  box-shadow: 0 0 3px 0 #666;
+  width: 400px;
+  background-color: #fff;
+  box-shadow: 0 0 3px 0 #ddd;
 
   .title {
     font-size: 24px;
+    margin: 0;
+    padding: 16px 0;
   }
 }

@@ -1,11 +1,17 @@
 .card {
-  margin: 5px 0;
+  margin: 10px 0;
   width: auto;
   height: 150px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 0 1px 1px #666;
+  box-shadow: 0 0 0 1px #bbb;
+  background-color: #fff;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #eee;
+  }
 
   .info {
     text-align: start;
@@ -37,10 +43,6 @@
   }
 }
 
-.card:hover {
-  cursor: pointer;
-}
-
 .drag {
-  opacity: 0;
+  opacity: 0.5;
 }
