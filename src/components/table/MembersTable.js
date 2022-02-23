@@ -4,27 +4,29 @@ import style from './membersTable.module.scss';
 import { status } from '../../constants/status';
 
 const MembersTable = ({ tasks }) => {
+  const filterTasks = (tasks, status) => tasks.filter(task => task.status === status);
+
   return (
     <div className={style.table}>
       <Column
         title={status.TODO}
         titleStyle={style.toDo}
-        tasks={tasks.filter(item => item && item.status === status.TODO)}
+        tasks={filterTasks(tasks, status.TODO)}
       />
       <Column
         title={status.INPROGRESS}
         titleStyle={style.inProgress}
-        tasks={tasks.filter(item => item && item.status === status.INPROGRESS)}
+        tasks={filterTasks(tasks, status.INPROGRESS)}
       />
       <Column
         title={status.INREVIEW}
         titleStyle={style.inReview}
-        tasks={tasks.filter(item => item && item.status === status.INREVIEW)}
+        tasks={filterTasks(tasks, status.INREVIEW)}
       />
       <Column
         title={status.DONE}
         titleStyle={style.done}
-        tasks={tasks.filter(item => item && item.status === status.DONE)}
+        tasks={filterTasks(tasks, status.DONE)}
       />
     </div>
   );
