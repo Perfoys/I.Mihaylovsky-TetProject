@@ -12,6 +12,7 @@ const initialState = {
   tasks: [
     {
       id: 1,
+      order: 1,
       status: 'To Do',
       title: 'TASK',
       priority: 'High',
@@ -22,6 +23,7 @@ const initialState = {
     },
     {
       id: 2,
+      order: 2,
       status: 'In Progress',
       title: 'TASK',
       priority: 'Medium',
@@ -32,6 +34,7 @@ const initialState = {
     },
     {
       id: 5,
+      order: 3,
       status: 'In Progress',
       title: 'TASK',
       priority: 'Medium',
@@ -42,6 +45,7 @@ const initialState = {
     },
     {
       id: 3,
+      order: 4,
       status: 'In Review',
       title: 'TASK',
       priority: 'High',
@@ -52,6 +56,7 @@ const initialState = {
     },
     {
       id: 4,
+      order: 5,
       status: 'Done',
       title: 'TASK',
       priority: 'High',
@@ -73,9 +78,17 @@ const sprintSlice = createSlice({
       const { item, title } = action.payload;
       const taskItem = state.tasks.find(i => i.id === item.id);
       taskItem.status = title;
+    },
+    changeTaskOrder: (state, action) => {
+      const { dragIndex, hoverIndex } = action.payload;
+      const currentTask = state.tasks.find(task => task.id === dragIndex);
+      const nextTask = state.tasks.find(task => task.id === hoverIndex);
+      state.tasks.splice(currentTask.order - 1, 1);
+      state.tasks.splice(nextTask.order - 1, 0, currentTask);
+      [currentTask.order, nextTask.order] = [nextTask.order, currentTask.order];
     }
   }
 });
 
-export const { changeTaskStatus } = sprintSlice.actions;
+export const { changeTaskStatus, changeTaskOrder } = sprintSlice.actions;
 export default sprintSlice.reducer;
