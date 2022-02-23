@@ -43,7 +43,7 @@ const TaskCard = ({ task: { id, status, title, priority, description, img, deadl
           <div className={classNames(style.block, style.priority)}>{priority}</div>
           <div className={style.block}>{description}</div>
         </div>
-        <div>Time left: <Timer endDate={deadline} />d</div>
+        <Timer text={'Time left (days)'} endDate={deadline} />
       </div>
       <div className={style.img}><img src={img} alt='avatar'></img></div>
     </div>

@@ -2,17 +2,18 @@ import { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import calculateTimeLeft from '../../helpers/calculateTimeLeft.js';
 
-const Timer = ({ endDate }) => {
+const Timer = ({ text, endDate }) => {
   const timeLeft = useMemo(() => calculateTimeLeft(endDate), [endDate]);
 
   return (
-    <>
-      {timeLeft}
-    </>
+    <p>
+      {text}: {timeLeft}
+    </p>
   );
 };
 
 Timer.propTypes = {
+  text: PropTypes.string.isRequired,
   endDate: PropTypes.object.isRequired
 };
 
