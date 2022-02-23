@@ -6,31 +6,22 @@ import { ItemTypes } from '../../constants/dragTypes';
 import Timer from '../common/Timer';
 import style from './taskCard.module.scss';
 
-const TaskCard = ({ task: { id, title, priority, description, img, status, deadline }, index, moveCard }) => {
+const TaskCard = ({ task: { id, status, title, priority, description, img, deadline }, moveCard }) => {
   const ref = useRef(null);
   const [styleCard, setStyleCard] = useState(style.card);
 
   const [, drop] = useDrop(() => ({
     accept: ItemTypes.CARD,
     hover: (item, monitor) => {
-      if (!ref.current) return;
-      const dragIndex = item.index;
-      const hoverIndex = index;
-      if (dragIndex === hoverIndex) return;
-      const hoverBoundingRect = ref.current?.getBoundingClientRect();
-      const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
-      const clientOffset = monitor.getClientOffset();
-      const hoverClientY = clientOffset.y - hoverBoundingRect.top;
-      if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) return;
-      if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) return;
-      moveCard(dragIndex, hoverIndex);
-      item.index = hoverIndex;
+      if (item.id !== id) {
+        moveCard(item.id, id, item.status);
+      }
     }
   }));
 
   const [{ isDragging }, drag] = useDrag(() => ({
     type: ItemTypes.CARD,
-    item: { id, title, priority, description, img, status, index },
+    item: { id, status },
     collect: monitor => ({
       isDragging: monitor.isDragging()
     })
@@ -61,7 +52,6 @@ const TaskCard = ({ task: { id, title, priority, description, img, status, deadl
 
 TaskCard.propTypes = {
   task: PropTypes.object.isRequired,
-  index: PropTypes.number.isRequired,
   moveCard: PropTypes.func.isRequired
 };
 
