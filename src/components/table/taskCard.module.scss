@@ -1,11 +1,17 @@
 .card {
-  margin: 5px 0;
+  margin: 10px 0;
   width: auto;
   height: 150px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 0 1px 1px #666;
+  box-shadow: 0 0 0 1px #bbb;
+  background-color: #fff;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #eee;
+  }
 
   .info {
     text-align: start;
@@ -22,6 +28,11 @@
       .block {
         margin: 0 1%;
       }
+
+      .priority {
+        text-decoration-line: underline;
+        text-decoration-color: #F88;
+      }
     }
   }
 
@@ -35,4 +46,8 @@
       max-width: 100%;
     }
   }
+}
+
+.drag {
+  opacity: 0.5;
 }
