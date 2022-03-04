@@ -19,7 +19,15 @@ const initialState = {
       description: 'Apriel inventory of supplies',
       member: 'Name Surname',
       deadline: new Date('2022-03-01'),
-      img: 'https://www.kindpng.com/picc/m/130-1300217_user-icon-member-icon-png-transparent-png.png'
+      img: 'https://www.kindpng.com/picc/m/130-1300217_user-icon-member-icon-png-transparent-png.png',
+      comments: [
+        {
+          id: 1,
+          text: 'Need more time for this task',
+          author: 'Tom tommas',
+          date: new Date('2022-02-20')
+        }
+      ]
     },
     {
       id: 2,
@@ -30,7 +38,8 @@ const initialState = {
       description: 'March inventory of supplies',
       member: 'Name Surname',
       deadline: new Date('2022-03-01'),
-      img: 'https://www.kindpng.com/picc/m/130-1300217_user-icon-member-icon-png-transparent-png.png'
+      img: 'https://www.kindpng.com/picc/m/130-1300217_user-icon-member-icon-png-transparent-png.png',
+      comments: []
     },
     {
       id: 5,
@@ -41,7 +50,8 @@ const initialState = {
       description: 'May inventory of supplies',
       member: 'Name Surname',
       deadline: new Date('2022-03-01'),
-      img: 'https://www.kindpng.com/picc/m/130-1300217_user-icon-member-icon-png-transparent-png.png'
+      img: 'https://www.kindpng.com/picc/m/130-1300217_user-icon-member-icon-png-transparent-png.png',
+      comments: []
     },
     {
       id: 3,
@@ -52,7 +62,8 @@ const initialState = {
       description: 'Modify report templates',
       member: 'Name Surname',
       deadline: new Date('2022-03-01'),
-      img: 'https://www.kindpng.com/picc/m/130-1300217_user-icon-member-icon-png-transparent-png.png'
+      img: 'https://www.kindpng.com/picc/m/130-1300217_user-icon-member-icon-png-transparent-png.png',
+      comments: []
     },
     {
       id: 4,
@@ -63,7 +74,8 @@ const initialState = {
       description: 'Metrics report for August',
       member: 'Name Surname',
       deadline: new Date('2022-03-01'),
-      img: 'https://www.kindpng.com/picc/m/130-1300217_user-icon-member-icon-png-transparent-png.png'
+      img: 'https://www.kindpng.com/picc/m/130-1300217_user-icon-member-icon-png-transparent-png.png',
+      comments: []
     }
   ]
 };
@@ -83,12 +95,24 @@ const sprintSlice = createSlice({
       const { dragIndex, hoverIndex } = action.payload;
       const currentTask = state.tasks.find(task => task.id === dragIndex);
       const nextTask = state.tasks.find(task => task.id === hoverIndex);
-      state.tasks.splice(currentTask.order - 1, 1);
-      state.tasks.splice(nextTask.order - 1, 0, currentTask);
+      const currentIndex = state.tasks.indexOf(currentTask);
+      const nextIndex = state.tasks.indexOf(nextTask);
+      state.tasks.splice(currentIndex, 1);
+      state.tasks.splice(nextIndex, 0, currentTask);
       [currentTask.order, nextTask.order] = [nextTask.order, currentTask.order];
+    },
+    addComment: (state, action) => {
+      const { taskId, text, author } = action.payload;
+      const task = state.tasks.find(task => task.id === taskId);
+      task.comments.push({
+        id: task.comments.length + 1,
+        text: text,
+        author: author,
+        date: new Date()
+      });
     }
   }
 });
 
-export const { changeTaskStatus, changeTaskOrder } = sprintSlice.actions;
+export const { changeTaskStatus, changeTaskOrder, addComment } = sprintSlice.actions;
 export default sprintSlice.reducer;
