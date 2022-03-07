@@ -3,25 +3,26 @@ import { useDispatch } from 'react-redux';
 import { changeTaskStatus } from '../../reducers/sprintReducer';
 import style from './statusSelector.module.scss';
 
-const StatusSelector = ({ task }) => {
+const StatusSelector = ({ id, status }) => {
   const dispatch = useDispatch();
 
   const handleChange = (event) => {
-    dispatch(changeTaskStatus({ item: task, title: event.target.value }));
+    dispatch(changeTaskStatus({ item: { id }, title: event.target.value }));
   };
 
   return (
-    <select className={style.selection} onChange={handleChange} value={task.status}>
-      <option>To Do</option>
-      <option>In Progress</option>
-      <option>In Review</option>
-      <option>Done</option>
+    <select className={style.selection} onChange={handleChange} value={status}>
+      <option value='To Do'>To Do</option>
+      <option value='In Progress'>In Progress</option>
+      <option value='In Review'>In Review</option>
+      <option value='Done'>Done</option>
     </select>
   );
 };
 
 StatusSelector.propTypes = {
-  task: PropTypes.object.isRequired
+  id: PropTypes.number.isRequired,
+  status: PropTypes.string.isRequired
 };
 
 export default StatusSelector;
