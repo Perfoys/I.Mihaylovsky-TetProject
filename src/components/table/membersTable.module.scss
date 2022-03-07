@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 .table {
   width: 100%;
   display: flex;
@@ -5,18 +7,18 @@
   justify-content: space-around;
 
   .toDo {
-    background-color: rgba(210, 50, 50, 0.75);
+    background-color: $todo-box-color;
   }
 
   .inProgress {
-    background-color: rgba(230, 110, 50, 0.75);
+    background-color: $inprogress-box-color;
   }
 
   .inReview {
-    background-color: rgba(85, 85, 190, 0.75);
+    background-color: $inreview-box-color;
   }
 
   .done {
-    background-color: rgba(85, 190, 85, 0.75);
+    background-color: $done-box-color;
   }
 }

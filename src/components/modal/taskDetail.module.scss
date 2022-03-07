@@ -1,55 +1,15 @@
+@import '../../styles/variables.scss';
+
 .detail {
   display: flex;
   align-items: flex-start;
-  background-color: #F4F5F7;
-  border-radius: 2px;
-  margin: 48px 0 80px;
-  min-height: 450px;
-  width: 800px;
+  background-color: $main-color;
+  border-radius: $border-radius;
+  margin: $modal-margin;
+  min-height: $modal-height;
+  width: $modal-width;
   outline: none;
-  padding: 20px;
-
-  .header2 {
-    font-size: 20px;
-    margin: 10px 0;
-  }
-
-  .mainSection {
-    display: flex;
-    flex-grow: 3;
-    flex-direction: column;
-    justify-content: space-between;
-    
-    .title {
-      font-size: 26px;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }  
-
-    .description {
-      margin-bottom: 20px;
-    }
-  }
-
-  .additionSection {
-    display: flex;
-    flex-grow: 1;
-    flex-direction: column;
-    justify-content: space-between;
-
-    .selection {
-      height: 32px;
-      width: 100px;
-      background-color: #DDD;
-      border: none;
-      border-radius: 2px;
-      font-weight: bold;
-    }
-
-    .member {
-      margin-bottom: 20px;
-    }
-  }
+  padding: $modal-padding;
 }
 
 .overlay {
@@ -60,5 +20,5 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0,0,0,0.5);
+  background-color: $overlay-color;
 }

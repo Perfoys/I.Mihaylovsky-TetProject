@@ -1,24 +1,26 @@
+@import '../../styles/variables.scss';
+
 .card {
-  margin: 10px 0;
+  margin: $main-margin;
   width: auto;
-  height: 150px;
+  height: $card-height;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 0 0 1px #bbb;
-  background-color: #fff;
+  box-shadow: 0 0 0 1px $shadow-color;
+  background-color: $background-color;
 
   &:hover {
     cursor: pointer;
-    background-color: #eee;
+    background-color: $hover-color;
   }
 
   .info {
     text-align: start;
-    margin: 1em;
+    margin: $main-margin;
 
     .title {
-      font-size: 18px;
+      font-size: $font-size;
     }
 
     .description {
@@ -31,15 +33,15 @@
 
       .priority {
         text-decoration-line: underline;
-        text-decoration-color: #F88;
+        text-decoration-color: $mark-color;
       }
     }
   }
 
   .img {
-    width: 80px;
-    height: 80px;
-    margin: 1em;
+    width: $main-image-size;
+    height: $main-image-size;
+    margin: $image-margin;
 
     img {
       border-radius: 50%;
