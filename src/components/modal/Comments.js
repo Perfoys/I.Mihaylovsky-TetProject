@@ -5,11 +5,11 @@ import { addComment } from '../../reducers/sprintReducer';
 import style from './comments.module.scss';
 
 const Comments = ({ taskId, author, comments }) => {
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset } = useForm({ defaultValues: { taskId, author } });
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-    dispatch(addComment({ taskId: taskId, text: data.text, author: author }));
+    dispatch(addComment(data));
     reset();
   };
 
