@@ -5,9 +5,9 @@ import { changeTaskStatus } from '../../reducers/sprintReducer';
 import { status as statuses } from '../../constants/status';
 import style from './statusSelector.module.scss';
 
-const StatusSelector = ({ id, status }) => {
+const StatusSelector = ({ task }) => {
   const dispatch = useDispatch();
-  const currentOption = { value: status, label: status };
+  const currentOption = { value: task.status, label: task.status };
   const createOptions = (statuses) => {
     return Object.values(statuses).map(status => {
       return { value: status, label: status };
@@ -15,7 +15,7 @@ const StatusSelector = ({ id, status }) => {
   };
 
   const handleChange = (event) => {
-    dispatch(changeTaskStatus({ item: { id }, title: event.value }));
+    dispatch(changeTaskStatus({ item: task, title: event.value }));
   };
 
   return (
@@ -29,8 +29,7 @@ const StatusSelector = ({ id, status }) => {
 };
 
 StatusSelector.propTypes = {
-  id: PropTypes.number.isRequired,
-  status: PropTypes.string.isRequired
+  task: PropTypes.object.isRequired
 };
 
 export default StatusSelector;
