@@ -11,19 +11,21 @@ const TaskCard = ({ task, moveCard }) => {
   const ref = useRef(null);
   const [styleCard, setStyleCard] = useState(style.card);
   const [showModal, setShowModal] = useState(false);
+  const { id, status, title, priority, description, image, deadline, member, comments } = task;
+  const taskInformation = { id, title, status, description, member, comments };
 
   const [, drop] = useDrop(() => ({
     accept: ItemTypes.CARD,
     hover: (item, monitor) => {
-      if (item.id !== task.id) {
-        moveCard(item.id, task.id, item.status);
+      if (item.id !== id) {
+        moveCard(item.id, id, item.status);
       }
     }
   }));
 
   const [{ isDragging }, drag] = useDrag(() => ({
     type: ItemTypes.CARD,
-    item: { id: task.id, status: task.status },
+    item: { id: id, status: status },
     collect: monitor => ({
       isDragging: monitor.isDragging()
     })
@@ -44,16 +46,18 @@ const TaskCard = ({ task, moveCard }) => {
     <>
       <div className={styleCard} ref={ref} onClick={openModal}>
         <div className={style.info}>
-          <h2 className={style.title}>{task.id}-{task.title}</h2>
+          <h2 className={style.title}>{id}-{title}</h2>
           <div className={style.description}>
-            <div className={classNames(style.block, style.priority)}>{task.priority}</div>
-            <div className={style.block}>{task.description}</div>
+            <div className={classNames(style.block, style.priority)}>{priority}</div>
+            <div className={style.block}>{description}</div>
           </div>
-          <Timer text={'Time left (days)'} endDate={task.deadline} />
+          <Timer text={'Time left (days)'} endDate={deadline} />
         </div>
-        <div className={style.img}><img src={task.image} alt='avatar'></img></div>
+        <div className={style.img}>
+          <img src={image} alt='avatar' />
+        </div>
       </div>
-      <TaskDetail task={task} isModalOpen={showModal} closeModal={closeModal} />
+      <TaskDetail task={taskInformation} isModalOpen={showModal} closeModal={closeModal} />
     </>
   );
 };
