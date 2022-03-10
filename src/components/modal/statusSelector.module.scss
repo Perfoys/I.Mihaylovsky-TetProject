@@ -1,6 +1,7 @@
 @import '../../styles/variables.scss';
 
 .selection {
+  margin-bottom: $bottom-margin;
   height: $selection-height;
   width: $selection-width;
   background-color: $selection-color;
