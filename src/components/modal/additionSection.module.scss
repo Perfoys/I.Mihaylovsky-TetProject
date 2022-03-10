@@ -1,0 +1,17 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+.additionSection {
+  @include flex-column;
+  flex-grow: 1;
+  justify-content: space-between;
+
+  .title {
+    font-size: $font-size;
+    margin: $title-margin;
+  }
+
+  .member {
+    margin-bottom: $bottom-margin;
+  }
+}

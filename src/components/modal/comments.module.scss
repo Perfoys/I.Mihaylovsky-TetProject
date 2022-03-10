@@ -1,0 +1,31 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.commentSection {
+  @include flex-column;
+
+  .title {
+    font-size: $font-size;
+    margin: $title-margin;
+  }
+
+  .form {
+    display: flex;
+
+    .input {
+      width: 100%;
+      font-size: $input-size;
+      height: $input-height;
+    }
+  }
+
+  .history {
+    @include flex-column;
+
+    .comment {
+      display: flex;
+      justify-content: space-between;
+      padding: $default-padding;
+    }
+  }
+}
