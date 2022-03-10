@@ -1,12 +1,19 @@
+import { FC } from 'react';
 import Modal from 'react-modal';
-import PropTypes from 'prop-types';
 import style from './taskDetail.module.scss';
 import MainSection from './MainSection';
 import AdditionSection from './AdditionSection';
+import { ITaskInfo } from '../../types/sprint';
 
 Modal.setAppElement('#root');
 
-const TaskDetail = ({ task, isModalOpen, closeModal }) => {
+type TaskDetailProps = {
+  task: ITaskInfo,
+  isModalOpen: boolean,
+  closeModal: () => void
+};
+
+const TaskDetail: FC<TaskDetailProps> = ({ task, isModalOpen, closeModal }: TaskDetailProps) => {
   return (
     <Modal
       isOpen={isModalOpen}
@@ -18,12 +25,6 @@ const TaskDetail = ({ task, isModalOpen, closeModal }) => {
       <AdditionSection task={task} />
     </Modal>
   );
-};
-
-TaskDetail.propTypes = {
-  task: PropTypes.object.isRequired,
-  isModalOpen: PropTypes.bool.isRequired,
-  closeModal: PropTypes.func.isRequired
 };
 
 export default TaskDetail;
