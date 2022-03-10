@@ -1,12 +1,12 @@
-import React from 'react';
+import * as React from 'react';
 import { Provider } from 'react-redux';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
-import './App.css';
+import './styles/App.css';
 import HomePage from './pages/HomePage';
 import store from './store';
 
-function App () {
+const App = () => {
   return (
     <React.StrictMode>
       <Provider store={store}>
@@ -18,6 +18,6 @@ function App () {
       </Provider>
     </React.StrictMode>
   );
-}
+};
 
 export default App;
