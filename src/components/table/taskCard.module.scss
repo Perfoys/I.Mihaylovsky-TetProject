@@ -1,14 +1,17 @@
 @import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
 
 .card {
   margin: $main-margin;
+  padding: $default-padding;
   width: auto;
   height: $card-height;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 0 0 1px $shadow-color;
+  align-items: flex-start;
+  box-shadow: 0 0 3px 0 $shadow-color;
   background-color: $background-color;
+  border-radius: $border-radius;
 
   &:hover {
     cursor: pointer;
@@ -16,34 +19,38 @@
   }
 
   .info {
+    @include flex-column;
+    justify-content: space-evenly;
     text-align: start;
-    margin: $main-margin;
+    height: 100%;
 
     .title {
+      margin: 0;
       font-size: $font-size;
     }
 
     .description {
+      margin: 0;
       display: flex;
       justify-content: space-between;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      height: $card-description-height;
+      width: $card-description-width;
+    }
 
-      .block {
-        margin: 0 1%;
-      }
-
-      .priority {
-        text-decoration-line: underline;
-        text-decoration-color: $mark-color;
-      }
+    .priority {
+      text-decoration-line: underline;
+      text-decoration-color: $mark-color;
     }
   }
 
   .img {
-    width: $main-image-size;
-    height: $main-image-size;
-    margin: $image-margin;
+    margin: $image-margin 0;
 
-    img {
+    .avatar {
+      width: $main-image-size;
+      height: $main-image-size;
       border-radius: 50%;
       max-width: 100%;
     }

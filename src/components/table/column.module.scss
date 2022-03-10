@@ -9,10 +9,13 @@
   width: $column-width;
   background-color: $background-color;
   box-shadow: 0 0 3px 0 $shadow-color;
+  border-radius: $border-radius;
 
   .title {
     font-size: $title-font-size;
     margin: 0;
     padding: $column-title-padding;
+    border-top-right-radius: $border-radius;
+    border-top-left-radius: $border-radius;
   }
 }
