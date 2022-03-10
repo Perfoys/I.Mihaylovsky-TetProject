@@ -10,7 +10,6 @@ export const initialSprint = {
   tasks: [
     {
       id: 1,
-      order: 1,
       status: 'To Do',
       title: 'TASK',
       priority: 'High',
@@ -29,11 +28,10 @@ export const initialSprint = {
     },
     {
       id: 2,
-      order: 2,
       status: 'In Progress',
       title: 'TASK',
       priority: 'Medium',
-      description: 'March inventory of supplies',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac aliquam elit. Nulla et sapien felis. Maecenas at magna aliquam, aliquet tellus in, volutpat ipsum.',
       member: 'Name Surname',
       deadline: new Date('2022-03-01'),
       image: 'https://www.kindpng.com/picc/m/130-1300217_user-icon-member-icon-png-transparent-png.png',
@@ -41,7 +39,6 @@ export const initialSprint = {
     },
     {
       id: 5,
-      order: 3,
       status: 'In Progress',
       title: 'TASK',
       priority: 'Medium',
@@ -53,7 +50,6 @@ export const initialSprint = {
     },
     {
       id: 3,
-      order: 4,
       status: 'In Review',
       title: 'TASK',
       priority: 'High',
@@ -65,7 +61,6 @@ export const initialSprint = {
     },
     {
       id: 4,
-      order: 5,
       status: 'Done',
       title: 'TASK',
       priority: 'High',
