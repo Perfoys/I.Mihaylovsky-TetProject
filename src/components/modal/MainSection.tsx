@@ -7,7 +7,7 @@ type MainSectionProps = {
   task: ITaskInfo
 };
 
-const MainSection: FC<MainSectionProps> = ({ task }: MainSectionProps) => {
+const MainSection: FC<MainSectionProps> = ({ task }) => {
   return (
     <div className={style.mainSection}>
       <div className={style.title}>{task.title}</div>

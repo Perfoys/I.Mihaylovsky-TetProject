@@ -13,7 +13,7 @@ type TaskDetailProps = {
   closeModal: () => void
 };
 
-const TaskDetail: FC<TaskDetailProps> = ({ task, isModalOpen, closeModal }: TaskDetailProps) => {
+const TaskDetail: FC<TaskDetailProps> = ({ task, isModalOpen, closeModal }) => {
   return (
     <Modal
       isOpen={isModalOpen}

@@ -8,7 +8,7 @@ type HeaderProps = {
   sprint: ISprint
 };
 
-const Header: FC<HeaderProps> = ({ sprint }: HeaderProps) => {
+const Header: FC<HeaderProps> = ({ sprint }) => {
   return (
     <header className={style.header}>
       <Wrapper>

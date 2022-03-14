@@ -7,7 +7,7 @@ type TimerProps = {
   endDate: Date
 };
 
-const Timer: FC<TimerProps> = ({ text, endDate }: TimerProps) => {
+const Timer: FC<TimerProps> = ({ text, endDate }) => {
   const timeLeft = useMemo(() => calculateTimeLeft(endDate), [endDate]);
 
   return (

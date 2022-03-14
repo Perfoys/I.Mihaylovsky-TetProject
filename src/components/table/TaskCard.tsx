@@ -12,7 +12,7 @@ type TaskCardProps = {
   moveCard: (dragIndex: number, hoverIndex: number, status: string) => void
 };
 
-const TaskCard: FC<TaskCardProps> = ({ task, moveCard }: TaskCardProps) => {
+const TaskCard: FC<TaskCardProps> = ({ task, moveCard }) => {
   const ref = useRef(null);
   const [styleCard, setStyleCard] = useState(style.card);
   const [showModal, setShowModal] = useState(false);

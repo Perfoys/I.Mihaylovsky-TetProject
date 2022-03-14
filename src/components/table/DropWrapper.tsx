@@ -10,7 +10,7 @@ type DropWrapperProps = {
   title: string
 };
 
-const DropWrapper: FC<DropWrapperProps> = ({ onDrop, children, title }: DropWrapperProps) => {
+const DropWrapper: FC<DropWrapperProps> = ({ onDrop, children, title }) => {
   const [{ isOver }, drop] = useDrop(() => ({
     accept: ItemTypes.CARD,
     drop: (item: IItem) => {

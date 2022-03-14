@@ -7,7 +7,7 @@ type AdditionSectionProps = {
   task: ITaskInfo
 };
 
-const AdditionSection: FC<AdditionSectionProps> = ({ task }: AdditionSectionProps) => {
+const AdditionSection: FC<AdditionSectionProps> = ({ task }) => {
   return (
     <div className={style.additionSection}>
       <StatusSelector task={task} />

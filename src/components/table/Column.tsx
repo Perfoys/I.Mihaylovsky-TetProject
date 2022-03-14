@@ -13,7 +13,7 @@ type ColumnProps = {
   tasks: Array<ITask>
 };
 
-const Column: FC<ColumnProps> = ({ title, titleStyle, tasks }: ColumnProps) => {
+const Column: FC<ColumnProps> = ({ title, titleStyle, tasks }) => {
   const dispatch = useDispatch();
 
   const moveCard = useCallback((dragIndex, hoverIndex, status) => {

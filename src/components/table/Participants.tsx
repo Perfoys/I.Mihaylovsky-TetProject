@@ -5,7 +5,7 @@ type ParticipantsProps = {
   members: Array<string>
 };
 
-const Participants: FC<ParticipantsProps> = ({ members }: ParticipantsProps) => {
+const Participants: FC<ParticipantsProps> = ({ members }) => {
   return (
     <div className={style.participants}>
       <h2 className={style.title}>Participants:</h2>

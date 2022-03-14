@@ -5,7 +5,7 @@ type WrapperProps = {
   children: React.ReactNode
 };
 
-const Wrapper: FC<WrapperProps> = ({ children }: WrapperProps) => {
+const Wrapper: FC<WrapperProps> = ({ children }) => {
   return (
     <div className={style.wrapper}>
       {React.Children.map(children, child => {

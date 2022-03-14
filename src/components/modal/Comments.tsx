@@ -15,7 +15,7 @@ type Inputs = {
   text: string
 };
 
-const Comments: FC<CommentsProps> = ({ task }: CommentsProps) => {
+const Comments: FC<CommentsProps> = ({ task }) => {
   const { register, handleSubmit, reset } = useForm<Inputs>({ defaultValues: { taskId: task.id, author: task.member } });
   const dispatch = useDispatch();
 
