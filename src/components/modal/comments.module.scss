@@ -10,12 +10,23 @@
   }
 
   .form {
+    width: 100%;
     display: flex;
+    justify-content: space-between;
+
+    .image {
+      margin-right: $image-margin;
+      height: $small-image-size;
+      width: $small-image-size;
+      border-radius: 50%;
+    }
 
     .input {
-      width: 100%;
+      display: block;
+      width: $comment-input-width;
       font-size: $input-size;
       height: $input-height;
+      border-radius: $border-radius;
     }
   }
 
@@ -23,9 +34,14 @@
     @include flex-column;
 
     .comment {
-      display: flex;
+      @include flex-column;
+      margin-left: $comment-margin;
       justify-content: space-between;
       padding: $default-padding;
+
+      .author {
+        color: $author-color;
+      }
     }
   }
 }

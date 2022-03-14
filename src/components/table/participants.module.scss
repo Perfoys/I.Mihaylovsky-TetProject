@@ -1,0 +1,16 @@
+@import '../../styles/variables.scss';
+
+.participants {
+  display: flex;
+  align-items: center;
+
+  .title {
+    font-size: $font-size;
+    margin: $title-margin;
+  }
+
+  .member {
+    font-size: $font-size;
+    margin: $member-margin;
+  }
+}

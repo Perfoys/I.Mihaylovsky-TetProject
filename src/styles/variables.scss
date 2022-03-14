@@ -4,9 +4,11 @@ $title-font-size: 26px;
 $font-size: 20px;
 $input-size: 16px;
 $border-size: 1px;
-$main-image-size: 80px;
+$main-image-size: 60px;
+$small-image-size: 40px;
+$wrapper-size: 1600px;
 // Radius
-$border-radius: 2px;
+$border-radius: 4px;
 // Paddings
 $default-padding: 10px;
 $column-title-padding: 16px 0;
@@ -15,8 +17,11 @@ $modal-padding: 20px;
 $title-margin: 10px 0;
 $main-margin: 15px 5px;
 $bottom-margin: 20px;
-$image-margin: 15px;
+$image-margin: 10px;
 $modal-margin: 48px 0 80px;
+$wrapper-margin: 0 auto;
+$member-margin: 0 10px;
+$comment-margin: 40px;
 // Heights
 $header-height: 100px;
 $selection-height: 32px;
@@ -24,10 +29,15 @@ $column-height: 800px;
 $card-height: 150px;
 $input-height: 32px;
 $modal-height: 450px;
+$card-description-height: 46px;
+$comment-input-height: 100px;
 // Widths
 $selection-width: 200px;
+$description-width: 580px;
+$card-description-width: 300px;
 $column-width: 400px;
 $modal-width: 800px;
+$comment-input-width: 520px;
 // Colors
 $selection-color: #DDD;
 $border-color: #ddd;
@@ -37,6 +47,7 @@ $background-color: #fff;
 $shadow-color: #ddd;
 $hover-color: #eee;
 $mark-color: #F88;
+$author-color: #1af;
 // Transparent color
 $overlay-color: rgba(0,0,0,0.5);
 $todo-box-color: rgba(210, 50, 50, 0.75);

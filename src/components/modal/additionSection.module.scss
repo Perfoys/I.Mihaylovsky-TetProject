@@ -3,7 +3,6 @@
 
 .additionSection {
   @include flex-column;
-  flex-grow: 1;
   justify-content: space-between;
 
   .title {
@@ -12,6 +11,14 @@
   }
 
   .member {
-    margin-bottom: $bottom-margin;
+    display: flex;
+    align-items: center;
+
+    .image {
+      margin-right: $image-margin;
+      height: $small-image-size;
+      width: $small-image-size;
+      border-radius: 50%;
+    }
   }
 }

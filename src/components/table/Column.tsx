@@ -1,13 +1,19 @@
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { useCallback } from 'react';
+import { useCallback, FC } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeTaskStatus, changeTaskOrder } from '../../reducers/sprintReducer';
+import { ITask } from '../../types/sprint';
 import TaskCard from './TaskCard';
 import style from './column.module.scss';
 import DropWrapper from './DropWrapper';
 
-const Column = ({ title, titleStyle, tasks }) => {
+type ColumnProps = {
+  title: string,
+  titleStyle: string,
+  tasks: Array<ITask>
+};
+
+const Column: FC<ColumnProps> = ({ title, titleStyle, tasks }) => {
   const dispatch = useDispatch();
 
   const moveCard = useCallback((dragIndex, hoverIndex, status) => {
@@ -16,7 +22,7 @@ const Column = ({ title, titleStyle, tasks }) => {
     }
   }, [tasks]);
 
-  const onDrop = useCallback((item, monitor, title) => {
+  const onDrop = useCallback((item, title) => {
     if (item.status !== title) {
       dispatch(changeTaskStatus({ item: item, title: title }));
     }
@@ -32,12 +38,6 @@ const Column = ({ title, titleStyle, tasks }) => {
       </DropWrapper>
     </div>
   );
-};
-
-Column.propTypes = {
-  title: PropTypes.string.isRequired,
-  titleStyle: PropTypes.string.isRequired,
-  tasks: PropTypes.array.isRequired
 };
 
 export default Column;

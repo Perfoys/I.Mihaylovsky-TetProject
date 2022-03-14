@@ -2,6 +2,7 @@
 
 .detail {
   display: flex;
+  justify-content: space-between;
   align-items: flex-start;
   background-color: $main-color;
   border-radius: $border-radius;

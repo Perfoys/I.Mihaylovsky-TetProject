@@ -3,7 +3,7 @@
 
 .mainSection {
   @include flex-column;
-  flex-grow: 3;
+  width: $description-width;
   justify-content: space-between;
 
   .header2 {
@@ -19,5 +19,6 @@
 
   .description {
     margin-bottom: $bottom-margin;
+    width: $description-width;
   }
 }
