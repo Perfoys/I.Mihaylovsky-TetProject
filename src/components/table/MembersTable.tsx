@@ -11,33 +11,23 @@ type MembersTableProps = {
   tasks: Array<ITask>
 };
 
-const MembersTable: FC<MembersTableProps> = ({ members, tasks }: MembersTableProps) => {
+const MembersTable: FC<MembersTableProps> = ({ members, tasks }) => {
+  const titleStyles = [style.toDo, style.inProgress, style.inReview, style.done];
   const filterTasks = (tasks: Array<ITask>, status: string) => tasks.filter(task => task.status === status);
+
+  const createColumns = (tasks: Array<ITask>, status: Record<string, string>, style: Array<string>): React.ReactNode => {
+    return Object.values(status).map((status, index) => {
+      return (
+        <Column key={index} title={status} titleStyle={style[index]} tasks={filterTasks(tasks, status)}/>
+      );
+    });
+  };
 
   return (
     <Wrapper>
       <Participants members={members} />
       <div className={style.table}>
-        <Column
-          title={status.TODO}
-          titleStyle={style.toDo}
-          tasks={filterTasks(tasks, status.TODO)}
-        />
-        <Column
-          title={status.INPROGRESS}
-          titleStyle={style.inProgress}
-          tasks={filterTasks(tasks, status.INPROGRESS)}
-        />
-        <Column
-          title={status.INREVIEW}
-          titleStyle={style.inReview}
-          tasks={filterTasks(tasks, status.INREVIEW)}
-        />
-        <Column
-          title={status.DONE}
-          titleStyle={style.done}
-          tasks={filterTasks(tasks, status.DONE)}
-        />
+        {createColumns(tasks, status, titleStyles)}
       </div>
     </Wrapper>
   );
