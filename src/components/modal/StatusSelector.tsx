@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import Select, { SingleValue } from 'react-select';
 import { changeTaskStatus } from '../../reducers/sprintReducer';
@@ -14,15 +14,15 @@ type OptionType = {
   label: string
 };
 
-const StatusSelector: FC<StatusSelectorProps> = ({ task }: StatusSelectorProps) => {
+const StatusSelector: FC<StatusSelectorProps> = ({ task }) => {
   const dispatch = useDispatch();
   const defaultOption: OptionType = { value: task.status, label: task.status };
 
-  const handleChange = (option: SingleValue<OptionType>) => {
+  const handleChange = useCallback((option: SingleValue<OptionType>) => {
     if (option) {
       dispatch(changeTaskStatus({ item: task, title: option.value }));
     }
-  };
+  }, []);
 
   return (
     <Select
