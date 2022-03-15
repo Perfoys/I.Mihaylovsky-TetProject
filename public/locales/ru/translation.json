@@ -1,0 +1,10 @@
+{
+  "title": "Добро пожаловать в React using react-i18next",
+  "header": {
+    "startDate": "Дата начала:",
+    "endDate": "Дата окончания:",
+    "daysLeft": "Дней осталось",
+    "langButton": "Изменить язык"
+  },
+  "participants": "Участники:"
+}
