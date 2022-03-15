@@ -20,7 +20,9 @@
     },
     "plugins": [
         "react",
-        "css-modules"
+        "css-modules",
+        "jest-dom",
+        "testing-library"
     ],
     "rules": {
         "semi": ["error", "always"],
