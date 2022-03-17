@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useSelector } from 'react-redux';
-import { RootState } from '../reducers/index';
+import { RootState } from '../redux/reducers/index';
 import Header from '../components/header/Header';
 import MembersTable from '../components/table/MembersTable';
 

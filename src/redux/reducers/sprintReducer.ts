@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { initialSprint } from '../data/initialSprint';
-import { ISprint } from '../types/sprint';
+import { initialSprint } from '../../data/initialSprint';
+import { ISprint } from '../../types/sprint';
 
 const initialState: ISprint = initialSprint;
 

@@ -1,0 +1,20 @@
+{
+  "header": {
+    "title": "{{title}}",
+    "startDate": "Start date:",
+    "endDate": "End date:", 
+    "daysLeft": "Days left",
+    "langButton": "Change language"
+  },
+  "participants": "Participants:",
+  "column": {
+    "title": "{{title}}"
+  },
+  "modal": {
+    "descriptionTitle": "Description",
+    "commentsTitle": "Comments",
+    "assigne": "Assigne",
+    "commentsLabel": "Press Enter to add a comment",
+    "commentLeave": "Leave a comment..."
+  }
+}

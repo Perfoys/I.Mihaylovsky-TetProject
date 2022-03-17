@@ -15,5 +15,17 @@
       color: $text-color;
       font-size: $header-font-size;
     }
+
+    .langButton {
+      padding: 0;
+      width: $icon-size;
+      background-color: $background-color;
+      border-radius: $border-radius;
+      border: none;
+
+      .icon {
+        width: $icon-size;
+      }
+    }    
   }
 }

@@ -1,7 +1,8 @@
 import classNames from 'classnames';
 import { useCallback, FC } from 'react';
 import { useDispatch } from 'react-redux';
-import { changeTaskStatus, changeTaskOrder } from '../../reducers/sprintReducer';
+import { useTranslation } from 'react-i18next';
+import { changeTaskStatus, changeTaskOrder } from '../../redux/reducers/sprintReducer';
 import { ITask } from '../../types/sprint';
 import TaskCard from './TaskCard';
 import style from './column.module.scss';
@@ -14,6 +15,7 @@ type ColumnProps = {
 };
 
 const Column: FC<ColumnProps> = ({ title, titleStyle, tasks }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
 
   const moveCard = useCallback((dragIndex, hoverIndex, status) => {
@@ -30,7 +32,7 @@ const Column: FC<ColumnProps> = ({ title, titleStyle, tasks }) => {
 
   return (
     <div className={style.column}>
-      <h1 className={classNames(style.title, titleStyle)}>{title}</h1>
+      <h1 className={classNames(style.title, titleStyle)}>{t('column.title', { title: title })}</h1>
       <DropWrapper onDrop={onDrop} title={title}>
         {tasks.map(task => (
           task && <TaskCard key={task.id} task={task} moveCard={moveCard} />

@@ -1,0 +1,20 @@
+{
+  "header": {
+    "title": "{{title}}",
+    "startDate": "Дата начала:",
+    "endDate": "Дата окончания:",
+    "daysLeft": "Дней осталось",
+    "langButton": "Изменить язык"
+  },
+  "participants": "Участники:",
+  "column": {
+    "title": "{{title}}"
+  },
+  "modal": {
+    "descriptionTitle": "Описание",
+    "commentsTitle": "Комментарии",
+    "assigne": "Участник",
+    "commentsLabel": "Нажмите Enter для добавления комментария",
+    "commentLeave": "Оставьте комментарий..."
+  }
+}
