@@ -13,6 +13,8 @@
   "modal": {
     "descriptionTitle": "Description",
     "commentsTitle": "Comments",
-    "assigne": "Assigne"
+    "assigne": "Assigne",
+    "commentsLabel": "Press Enter to add a comment",
+    "commentLeave": "Leave a comment..."
   }
 }

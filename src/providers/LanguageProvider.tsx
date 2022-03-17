@@ -9,6 +9,7 @@ type LanguageProviderProps = {
 const LanguageProvider: FC<LanguageProviderProps> = ({ children }) => {
   const { i18n } = useTranslation();
   const [language, setLanguage] = useState('en');
+
   const changeLanguage = useCallback(() => {
     setLanguage(prevLanguage => prevLanguage === 'en' ? 'ru' : 'en');
   }, [language]);

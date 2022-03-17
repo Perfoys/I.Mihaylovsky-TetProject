@@ -13,6 +13,8 @@
   "modal": {
     "descriptionTitle": "Описание",
     "commentsTitle": "Комментарии",
-    "assigne": "Участник"
+    "assigne": "Участник",
+    "commentsLabel": "Нажмите Enter для добавления комментария",
+    "commentLeave": "Оставьте комментарий..."
   }
 }
