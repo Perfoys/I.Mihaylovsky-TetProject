@@ -2,8 +2,8 @@ import { FC } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { addComment } from '../../redux/reducers/sprintReducer';
-import { ITaskInfo } from '../../types/sprint';
+import { addComment } from '../../../redux/reducers/sprintReducer';
+import { ITaskInfo } from '../../../types/sprint';
 import style from './comments.module.scss';
 
 type CommentsProps = {

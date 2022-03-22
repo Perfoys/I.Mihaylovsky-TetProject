@@ -2,11 +2,11 @@ import classNames from 'classnames';
 import { useCallback, FC } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { changeTaskStatus, changeTaskOrder } from '../../redux/reducers/sprintReducer';
-import { ITask } from '../../types/sprint';
-import TaskCard from './TaskCard';
+import { changeTaskStatus, changeTaskOrder } from '../../../redux/reducers/sprintReducer';
+import { ITask } from '../../../types/sprint';
+import TaskCard from '../TaskCard';
 import style from './column.module.scss';
-import DropWrapper from './DropWrapper';
+import DropWrapper from '../DropWrapper';
 
 type ColumnProps = {
   title: string,

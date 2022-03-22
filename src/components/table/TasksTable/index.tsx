@@ -1,17 +1,17 @@
 import { FC } from 'react';
-import Column from './Column';
-import style from './membersTable.module.scss';
-import { status } from '../../constants/status';
-import { ITask } from '../../types/sprint';
-import Participants from './Participants';
-import Wrapper from '../common/Wrapper';
+import Column from '../Column';
+import style from './tasksTable.module.scss';
+import { status } from '../../../constants/status';
+import { ITask } from '../../../types/sprint';
+import Participants from '../Participants';
+import Wrapper from '../../general/Wrapper';
 
-type MembersTableProps = {
+type TasksTableProps = {
   members: Array<string>,
   tasks: Array<ITask>
 };
 
-const MembersTable: FC<MembersTableProps> = ({ members, tasks }) => {
+const TasksTable: FC<TasksTableProps> = ({ members, tasks }) => {
   const titleStyles = [style.toDo, style.inProgress, style.inReview, style.done];
   const filterTasks = (tasks: Array<ITask>, status: string) => tasks.filter(task => task.status === status);
 
@@ -33,4 +33,4 @@ const MembersTable: FC<MembersTableProps> = ({ members, tasks }) => {
   );
 };
 
-export default MembersTable;
+export default TasksTable;

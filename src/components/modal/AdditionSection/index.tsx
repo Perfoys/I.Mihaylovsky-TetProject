@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import StatusSelector from './StatusSelector';
+import StatusSelector from '../StatusSelector';
 import style from './additionSection.module.scss';
-import { ITaskInfo } from '../../types/sprint';
+import { ITaskInfo } from '../../../types/sprint';
 
 type AdditionSectionProps = {
   task: ITaskInfo

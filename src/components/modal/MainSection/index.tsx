@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ITaskInfo } from '../../types/sprint';
-import Comments from './Comments';
+import { ITaskInfo } from '../../../types/sprint';
+import Comments from '../Comments';
 import style from './mainSection.module.scss';
 
 type MainSectionProps = {

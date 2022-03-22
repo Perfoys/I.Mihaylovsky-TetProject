@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import Modal from 'react-modal';
 import style from './taskDetail.module.scss';
-import MainSection from './MainSection';
-import AdditionSection from './AdditionSection';
-import { ITaskInfo } from '../../types/sprint';
+import MainSection from '../MainSection';
+import AdditionSection from '../AdditionSection';
+import { ITaskInfo } from '../../../types/sprint';
 
 Modal.setAppElement('#root');
 

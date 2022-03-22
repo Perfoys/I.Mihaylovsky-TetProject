@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef, FC } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
-import { ItemTypes } from '../../constants/dragTypes';
-import Timer from '../common/Timer';
+import { ItemTypes } from '../../../constants/dragTypes';
+import Timer from '../../general/Timer';
 import style from './taskCard.module.scss';
-import TaskDetail from '../modal/TaskDetail';
-import { ITask } from '../../types/sprint';
-import { IItem } from '../../types/drag';
+import TaskDetail from '../../modal/TaskDetail';
+import { ITask } from '../../../types/sprint';
+import { IItem } from '../../../types/drag';
 
 type TaskCardProps = {
   task: ITask,

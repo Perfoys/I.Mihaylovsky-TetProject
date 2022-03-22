@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { useSelector } from 'react-redux';
-import { RootState } from '../redux/reducers/index';
-import Header from '../components/header/Header';
-import MembersTable from '../components/table/MembersTable';
+import { RootState } from '../../redux/reducers/index';
+import Header from '../../components/Header';
+import TasksTable from '../../components/table/TasksTable';
 
 const HomePage: FC = () => {
   const sprint = useSelector((state: RootState) => state.sprint);
@@ -10,7 +10,7 @@ const HomePage: FC = () => {
   return (
     <div>
       <Header sprint={sprint} />
-      <MembersTable members={sprint.members} tasks={sprint.tasks} />
+      <TasksTable members={sprint.members} tasks={sprint.tasks} />
     </div>
   );
 };

@@ -1,9 +1,9 @@
 import { FC, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import Select, { SingleValue } from 'react-select';
-import { changeTaskStatus } from '../../redux/reducers/sprintReducer';
-import { ITaskInfo } from '../../types/sprint';
-import { options } from '../../constants/status';
+import { changeTaskStatus } from '../../../redux/reducers/sprintReducer';
+import { ITaskInfo } from '../../../types/sprint';
+import { options } from '../../../constants/status';
 import style from './statusSelector.module.scss';
 
 type StatusSelectorProps = {

@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { useDrop } from 'react-dnd';
-import { ItemTypes } from '../../constants/dragTypes';
-import { IItem } from '../../types/drag';
+import { ItemTypes } from '../../../constants/dragTypes';
+import { IItem } from '../../../types/drag';
 import style from './dropWrapper.module.scss';
 
 type DropWrapperProps = {

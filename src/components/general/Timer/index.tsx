@@ -1,5 +1,5 @@
 import { useMemo, FC } from 'react';
-import calculateTimeLeft from '../../helpers/calculateTimeLeft';
+import calculateTimeLeft from '../../../helpers/calculateTimeLeft';
 import style from './timer.module.scss';
 
 type TimerProps = {
