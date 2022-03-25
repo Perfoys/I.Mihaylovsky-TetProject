@@ -9,7 +9,8 @@
         "plugin:react/jsx-runtime",
         "standard",
         "plugin:css-modules/recommended",
-        "plugin:@typescript-eslint/recommended"
+        "plugin:@typescript-eslint/recommended",
+        "plugin:testing-library/react"
     ],
     "parserOptions": {
         "ecmaFeatures": {
