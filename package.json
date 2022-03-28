@@ -31,7 +31,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "tsc",
-    "test": "react-scripts test",
+    "test": "react-scripts test --coverage",
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.js",
     "lint-styles": "stylelint --fix ./**/*.{css,scss,less}",
