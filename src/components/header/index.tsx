@@ -27,8 +27,8 @@ const Header: FC<HeaderProps> = ({ sprint }) => {
       <Wrapper>
         <div className={style.headerWrap}>
           <h1 className={style.title}>{t('header.title', { title: sprint.title })}</h1>
-          <div>{t('header.startDate')} { sprint.startDate.toDateString() }</div>
-          <div>{t('header.endDate')} { sprint.endDate.toDateString() }</div>
+          <div id='start-date'>{t('header.startDate')} { sprint.startDate.toDateString() }</div>
+          <div id='end-date'>{t('header.endDate')} { sprint.endDate.toDateString() }</div>
           <Timer text={t('header.daysLeft')} endDate={sprint.endDate} />
           <button className={style.langButton} onClick={handleCLick}>
             <img className={style.icon} src={icon} />
