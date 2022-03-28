@@ -1,7 +1,7 @@
 import React from 'react';
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import { mount } from 'enzyme';
+import { mount, ReactWrapper } from 'enzyme';
 import Header from '.';
 import { initialSprint } from '../../data/initialSprint';
 import LanguageProvider from '../../providers/LanguageProvider';
@@ -22,24 +22,20 @@ i18next
   });
 
 describe('Header component testing', () => {
-  test('Header component renders correctly', () => {
-    const wrapper = mount(
+  let wrapper: ReactWrapper;
+  beforeEach(() => {
+    wrapper = mount(
       <React.Suspense fallback={<h1>Loading</h1>}>
         <LanguageProvider>
           <Header sprint={initialSprint}/>
         </LanguageProvider>
       </React.Suspense>
     );
+  });
+  test('Header component renders correctly', () => {
     expect(wrapper).toHaveLength(1);
   });
   test('Language change button works properly', () => {
-    const wrapper = mount(
-      <React.Suspense fallback={<h1>Loading</h1>}>
-        <LanguageProvider>
-          <Header sprint={initialSprint}/>
-        </LanguageProvider>
-      </React.Suspense>
-    );
     const langButton = wrapper.find('button.langButton');
     langButton.simulate('click');
     const startDate = wrapper.find('#start-date');
