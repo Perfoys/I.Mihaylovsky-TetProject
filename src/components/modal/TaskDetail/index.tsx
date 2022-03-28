@@ -5,7 +5,7 @@ import MainSection from '../MainSection';
 import AdditionSection from '../AdditionSection';
 import { ITaskInfo } from '../../../types/sprint';
 
-Modal.setAppElement('#root');
+if (process.env.NODE_ENV !== 'test') Modal.setAppElement('#root');
 
 type TaskDetailProps = {
   task: ITaskInfo,
