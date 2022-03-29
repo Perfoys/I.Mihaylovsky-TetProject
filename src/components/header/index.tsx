@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { ISprint } from '../../types/sprint';
 import style from './header.module.scss';
 import Timer from '../general/Timer';
-import Wrapper from '../general/Wrapper';
 import LanguageContext from '../../contexts/LanguageContext';
 import ruIcon from '../../assets/icons/ru.png';
 import enIcon from '../../assets/icons/en.png';
@@ -24,17 +23,15 @@ const Header: FC<HeaderProps> = ({ sprint }) => {
 
   return (
     <header className={style.header}>
-      <Wrapper>
-        <div className={style.headerWrap}>
-          <h1 className={style.title}>{t('header.title', { title: sprint.title })}</h1>
-          <div id='start-date'>{t('header.startDate')} { sprint.startDate.toDateString() }</div>
-          <div id='end-date'>{t('header.endDate')} { sprint.endDate.toDateString() }</div>
-          <Timer text={t('header.daysLeft')} endDate={sprint.endDate} />
-          <button className={style.langButton} onClick={handleCLick}>
-            <img className={style.icon} src={icon} />
-          </button>
-        </div>
-      </Wrapper>
+      <div className={style.wrapper}>
+        <h1 className={style.title}>{t('header.title', { title: sprint.title })}</h1>
+        <div id='start-date'>{t('header.startDate')} { sprint.startDate.toDateString() }</div>
+        <div id='end-date'>{t('header.endDate')} { sprint.endDate.toDateString() }</div>
+        <Timer text={t('header.daysLeft')} endDate={sprint.endDate} />
+        <button className={style.langButton} onClick={handleCLick}>
+          <img className={style.icon} src={icon} />
+        </button>
+      </div>
     </header>
   );
 };

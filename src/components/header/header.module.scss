@@ -2,30 +2,32 @@
 
 .header {
   height: $header-height;
-  width: 100%;
+  min-width: $wrapper-size;
   border-bottom: solid $border-size $border-color;
   font-size: $font-size;
 
-  .headerWrap {
+  .wrapper {
+    width: $wrapper-size;
+    margin: $wrapper-margin;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
-    .title {
-      color: $text-color;
-      font-size: $header-font-size;
-    }
-
-    .langButton {
-      padding: 0;
-      width: $icon-size;
-      background-color: $background-color;
-      border-radius: $border-radius;
-      border: none;
-
-      .icon {
-        width: $icon-size;
-      }
-    }    
   }
+
+  .title {
+    color: $text-color;
+    font-size: $header-font-size;
+  }
+
+  .langButton {
+    padding: 0;
+    width: $icon-size;
+    background-color: $background-color;
+    border-radius: $border-radius;
+    border: none;
+
+    .icon {
+      width: $icon-size;
+    }
+  }    
 }
