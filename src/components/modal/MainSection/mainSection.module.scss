@@ -1,0 +1,24 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
+.mainSection {
+  @include flex-column;
+  width: $description-width;
+  justify-content: space-between;
+
+  .header2 {
+    font-size: $font-size;
+    margin: $title-margin;
+  }
+  
+  .title {
+    font-size: $title-font-size;
+    font-weight: bold;
+    margin-bottom: $bottom-margin;
+  }  
+
+  .description {
+    margin-bottom: $bottom-margin;
+    width: $description-width;
+  }
+}

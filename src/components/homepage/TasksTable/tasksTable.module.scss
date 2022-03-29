@@ -1,0 +1,24 @@
+@import '../../../styles/variables.scss';
+
+.table {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+
+  .toDo {
+    background-color: $todo-box-color;
+  }
+
+  .inProgress {
+    background-color: $inprogress-box-color;
+  }
+
+  .inReview {
+    background-color: $inreview-box-color;
+  }
+
+  .done {
+    background-color: $done-box-color;
+  }
+}

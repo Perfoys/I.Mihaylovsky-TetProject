@@ -1,0 +1,47 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.commentSection {
+  @include flex-column;
+
+  .title {
+    font-size: $font-size;
+    margin: $title-margin;
+  }
+
+  .form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .image {
+      margin-right: $image-margin;
+      height: $small-image-size;
+      width: $small-image-size;
+      border-radius: 50%;
+    }
+
+    .input {
+      display: block;
+      width: $comment-input-width;
+      font-size: $input-size;
+      height: $input-height;
+      border-radius: $border-radius;
+    }
+  }
+
+  .history {
+    @include flex-column;
+
+    .comment {
+      @include flex-column;
+      margin-left: $comment-margin;
+      justify-content: space-between;
+      padding: $default-padding;
+
+      .author {
+        color: $author-color;
+      }
+    }
+  }
+}

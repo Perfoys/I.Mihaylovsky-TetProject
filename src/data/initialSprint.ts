@@ -1,7 +1,7 @@
 export const initialSprint = {
   title: 'Sprint title',
   startDate: new Date('2022-02-02'),
-  endDate: new Date('2022-03-08'),
+  endDate: new Date('2022-04-08'),
   members: [
     'Name Surname',
     'Tom Talkins',

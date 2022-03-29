@@ -1,0 +1,25 @@
+@import '../../../styles/variables.scss';
+
+.detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: $main-color;
+  border-radius: $border-radius;
+  margin: $modal-margin;
+  min-height: $modal-height;
+  width: $modal-width;
+  outline: none;
+  padding: $modal-padding;
+}
+
+.overlay {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $overlay-color;
+}

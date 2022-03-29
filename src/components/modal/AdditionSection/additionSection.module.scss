@@ -1,0 +1,24 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
+.additionSection {
+  @include flex-column;
+  justify-content: space-between;
+
+  .title {
+    font-size: $font-size;
+    margin: $title-margin;
+  }
+
+  .member {
+    display: flex;
+    align-items: center;
+
+    .image {
+      margin-right: $image-margin;
+      height: $small-image-size;
+      width: $small-image-size;
+      border-radius: 50%;
+    }
+  }
+}
