@@ -1,11 +1,11 @@
 import { FC, useContext, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ISprint } from '../../types/sprint';
+import { ISprint } from '../../../types/sprint';
 import style from './header.module.scss';
-import Timer from '../general/Timer';
-import LanguageContext from '../../contexts/LanguageContext';
-import ruIcon from '../../assets/icons/ru.png';
-import enIcon from '../../assets/icons/en.png';
+import Timer from '../../general/Timer';
+import LanguageContext from '../../../contexts/LanguageContext';
+import ruIcon from '../../../assets/icons/ru.png';
+import enIcon from '../../../assets/icons/en.png';
 
 type HeaderProps = {
   sprint: ISprint,

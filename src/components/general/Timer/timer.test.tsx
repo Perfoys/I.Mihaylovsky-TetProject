@@ -9,10 +9,14 @@ describe('Timer component testing', () => {
     expect(timer).toHaveLength(1);
     expect(timer.text()).toContain('Test timer');
   });
-  test('Calculate time left function returns correct data', () => {
-    const endDate = new Date('04-02-2022');
-    const difference = +endDate - +new Date();
-    const correctTime = difference > 0 ? Math.floor(difference / (1000 * 60 * 60 * 24)) : 0;
-    expect(calculateTimeLeft(endDate)).toBe(correctTime);
+  test('Calculate time left function returns 0 when no time left', () => {
+    const endDate = new Date('01-02-2022');
+    expect(calculateTimeLeft(endDate)).toBe(0);
+  });
+  test('Calculate time left function returns correct value', () => {
+    const endDate = new Date();
+    endDate.setDate(endDate.getDate() + 10);
+    endDate.setHours(0, 0, 0, 0);
+    expect(calculateTimeLeft(endDate)).toBe(9);
   });
 });
