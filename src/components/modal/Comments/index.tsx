@@ -1,9 +1,9 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { SubmitHandler, useForm } from 'react-hook-form';
 import { addComment } from '../../../redux/reducers/sprintReducer';
 import { ITaskInfo } from '../../../types/sprint';
+import useForm from '../../../hooks/useForm';
 import style from './comments.module.scss';
 
 type CommentsProps = {
@@ -18,11 +18,16 @@ type Inputs = {
 
 const Comments: FC<CommentsProps> = ({ task }) => {
   const { t } = useTranslation();
-  const { register, handleSubmit, reset } = useForm<Inputs>({ defaultValues: { taskId: task.id, author: task.member } });
+  const { state, bind, reset } = useForm({
+    taskId: task.id,
+    author: task.member,
+    text: ''
+  });
   const dispatch = useDispatch();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    dispatch(addComment(data));
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    dispatch(addComment(state));
     reset();
   };
 
@@ -31,8 +36,8 @@ const Comments: FC<CommentsProps> = ({ task }) => {
       <h2 className={style.title}>{t('modal.commentsTitle')}</h2>
       <div className={style.form}>
         <img className={style.image} src={task.image} alt='avatar' />
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <input className={style.input} {...register('text', { required: true })} placeholder={t('modal.commentLeave')} />
+        <form onSubmit={handleSubmit}>
+          <input className={style.input} name='text' {...bind} value={state.text} placeholder={t('modal.commentLeave')} />
           <label>{t('modal.commentsLabel')}</label>
         </form>
       </div>
