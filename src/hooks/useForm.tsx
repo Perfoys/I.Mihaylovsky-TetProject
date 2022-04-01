@@ -6,7 +6,7 @@ type Field = {
 };
 
 type Action = {
-  type: 'reset' | 'success',
+  type: 'RESET' | 'SUCCESS',
   payload: Field
 }
 
@@ -14,9 +14,9 @@ const useForm = (initialFields: any) => {
   const reducer = (state: typeof initialFields, action: Action) => {
     const { type, payload } = action;
     switch (type) {
-    case 'reset':
+    case 'RESET':
       return initialFields;
-    case 'success':
+    case 'SUCCESS':
       return { ...state, [payload.name]: [payload.value] };
     default:
       return { ...state };
@@ -24,10 +24,10 @@ const useForm = (initialFields: any) => {
   };
   const [state, dispatch] = useReducer(reducer, initialFields);
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch({ type: 'success', payload: { name: event.target.name, value: event.target.value } });
+    dispatch({ type: 'SUCCESS', payload: { name: event.target.name, value: event.target.value } });
   };
   const reset = () => {
-    dispatch({ type: 'reset', payload: initialFields });
+    dispatch({ type: 'RESET', payload: initialFields });
   };
 
   return {
