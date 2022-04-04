@@ -1,40 +1,24 @@
-import React, { useReducer } from 'react';
+import React, { useState } from 'react';
 
 type Field = {
-  name: string,
-  value: string
+  [key: string]: string
 };
 
-type Action = {
-  type: 'RESET' | 'SUCCESS',
-  payload: Field
-}
+const useForm = (initialFields: Field) => {
+  const [fields, setFields] = useState(initialFields);
 
-const useForm = (initialFields: any) => {
-  const reducer = (state: typeof initialFields, action: Action) => {
-    const { type, payload } = action;
-    switch (type) {
-    case 'RESET':
-      return initialFields;
-    case 'SUCCESS':
-      return { ...state, [payload.name]: [payload.value] };
-    default:
-      return { ...state };
-    }
-  };
-  const [state, dispatch] = useReducer(reducer, initialFields);
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch({ type: 'SUCCESS', payload: { name: event.target.name, value: event.target.value } });
+    const { name, value } = event.target;
+    setFields(state => ({ ...state, [name]: value }));
   };
+
   const reset = () => {
-    dispatch({ type: 'RESET', payload: initialFields });
+    setFields(initialFields);
   };
 
   return {
-    state,
-    bind: {
-      onChange: handleChange
-    },
+    fields,
+    handleChange,
     reset
   };
 };
