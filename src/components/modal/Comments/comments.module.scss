@@ -20,6 +20,10 @@
       width: $small-image-size;
       border-radius: 50%;
     }
+
+    .commentInput {
+      width: $comment-input-width;
+    }
   }
 
   .history {

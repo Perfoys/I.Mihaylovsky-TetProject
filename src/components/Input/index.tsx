@@ -1,16 +1,24 @@
+import classNames from 'classnames';
 import React, { FC } from 'react';
 import style from './input.module.scss';
 
 type InputProps = {
+  styleClass?: string,
   inputName: string,
-  placeholder: string,
+  placeholder?: string,
   value: string,
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-const Input: FC<InputProps> = ({ inputName, placeholder, value, handleChange }) => {
+const Input: FC<InputProps> = ({ styleClass, inputName, placeholder, value, handleChange }) => {
   return (
-    <input className={style.input} name={inputName} onChange={handleChange} value={value} placeholder={placeholder} />
+    <input
+      className={classNames(style.input, styleClass)}
+      name={inputName}
+      onChange={handleChange}
+      value={value}
+      placeholder={placeholder}
+    />
   );
 };
 

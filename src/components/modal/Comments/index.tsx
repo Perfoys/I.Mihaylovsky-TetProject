@@ -36,7 +36,13 @@ const Comments: FC<CommentsProps> = ({ task }) => {
       <div className={style.form}>
         <img className={style.image} src={task.image} alt='avatar' />
         <Form handleSubmit={handleSubmit}>
-          <Input inputName='text' placeholder={t('modal.commentLeave')} handleChange={handleChange} value={fields.text} />
+          <Input
+            styleClass={style.commentInput}
+            inputName='text'
+            placeholder={t('modal.commentLeave')}
+            handleChange={handleChange}
+            value={fields.text}
+          />
           <label>{t('modal.commentsLabel')}</label>
         </Form>
       </div>
