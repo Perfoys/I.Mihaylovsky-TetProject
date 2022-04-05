@@ -25,6 +25,7 @@ const Comments: FC<CommentsProps> = ({ task }) => {
   const dispatch = useDispatch();
 
   const handleSubmit = useCallback((event: React.FormEvent<HTMLFormElement>) => {
+    console.log(event.target);
     event.preventDefault();
     dispatch(addComment(data));
     reset();
@@ -38,6 +39,7 @@ const Comments: FC<CommentsProps> = ({ task }) => {
         <Form handleSubmit={handleSubmit}>
           <Input
             styleClass={style.commentInput}
+            inputType='text'
             inputName='text'
             placeholder={t('modal.commentLeave')}
             handleChange={handleChange}
