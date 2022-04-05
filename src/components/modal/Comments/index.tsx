@@ -5,8 +5,8 @@ import { addComment } from '../../../redux/reducers/sprintReducer';
 import { ITaskInfo } from '../../../types/sprint';
 import useForm from '../../../hooks/useForm';
 import style from './comments.module.scss';
-import Input from '../../Input';
-import Form from '../../Form';
+import Input from '../../custom/Input';
+import Form from '../../custom/Form';
 
 type CommentsProps = {
   task: ITaskInfo
