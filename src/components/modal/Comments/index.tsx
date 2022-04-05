@@ -28,7 +28,7 @@ const Comments: FC<CommentsProps> = ({ task }) => {
     event.preventDefault();
     dispatch(addComment(data));
     reset();
-  }, []);
+  }, [data]);
 
   return (
     <div className={style.commentSection}>
