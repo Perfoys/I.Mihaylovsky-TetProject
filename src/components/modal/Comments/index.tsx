@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { addComment } from '../../../redux/reducers/sprintReducer';
@@ -24,11 +24,11 @@ const Comments: FC<CommentsProps> = ({ task }) => {
   const data: Inputs = { taskId: task.id, author: task.member, text: fields.text };
   const dispatch = useDispatch();
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = useCallback((event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     dispatch(addComment(data));
     reset();
-  };
+  }, []);
 
   return (
     <div className={style.commentSection}>
