@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useCallback, useEffect, useState } from 'react';
 import style from './input.module.scss';
 
 type InputProps = {
@@ -19,7 +19,7 @@ const Input: FC<InputProps> = ({ styleClass, inputType, inputName, placeholder, 
   });
   const showError = state.isFocus && !state.isValid;
 
-  const handleValidation = () => {
+  const handleValidation = useCallback(() => {
     let isValid = true;
     let currentError = '';
 
@@ -41,15 +41,15 @@ const Input: FC<InputProps> = ({ styleClass, inputType, inputName, placeholder, 
     }
 
     setState(state => ({ ...state, isValid: isValid, error: currentError }));
-  };
+  }, [value]);
 
-  const handleBlur = () => {
+  const handleBlur = useCallback(() => {
     setState(state => ({ ...state, isFocus: false }));
-  };
+  }, []);
 
-  const handleFocus = () => {
+  const handleFocus = useCallback(() => {
     setState(state => ({ ...state, isFocus: true }));
-  };
+  }, []);
 
   useEffect(() => {
     handleValidation();
