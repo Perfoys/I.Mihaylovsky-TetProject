@@ -8,9 +8,7 @@ type FormProps = {
 const Form: FC<FormProps> = ({ handleSubmit, children }) => {
   return (
     <form onSubmit={handleSubmit}>
-      {React.Children.map(children, child => {
-        return React.isValidElement(child) ? React.cloneElement(child as React.ReactElement<FC>) : child;
-      })}
+      {children}
     </form>
   );
 };
