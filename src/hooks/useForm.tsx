@@ -4,21 +4,57 @@ type Field = {
   [key: string]: string
 };
 
-const useForm = (initialFields: Field) => {
-  const [fields, setFields] = useState(initialFields);
+type Error = {
+  [key: string]: string
+}
+
+const useForm = (defaultValues: Field) => {
+  const [state, setState] = useState(defaultValues);
+  const [errors, setErrors] = useState<Error>({});
 
   const handleChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    setFields(state => ({ ...state, [name]: value }));
+    setState(state => ({ ...state, [name]: value }));
   }, []);
 
   const reset = useCallback(() => {
-    setFields(initialFields);
+    setState(defaultValues);
   }, []);
 
+  const handleValidation = (data: object): boolean => {
+    let isValid = true;
+    const currentErrors: Error = {};
+    const values = Object.entries(data);
+
+    values.forEach((value: [string, any]) => {
+      if (value[1].length === 0) {
+        isValid = false;
+        currentErrors[value[0]] = 'Input value can not be empty';
+      }
+      if (value[1].length > 120) {
+        isValid = false;
+        currentErrors[value[0]] = 'Value length can not be more than 120 symbols';
+      }
+      if (parseInt(value[1]) < 0) {
+        isValid = false;
+        currentErrors[value[0]] = 'Input number can not be negative';
+      }
+    });
+
+    setErrors(currentErrors);
+    return isValid;
+  };
+
+  const handleSubmit = useCallback((onSubmit: React.FormEventHandler<HTMLFormElement>) => (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (handleValidation(state)) onSubmit(event);
+  }, [state]);
+
   return {
-    fields,
+    values: state,
+    errorMessage: errors,
     handleChange,
+    handleSubmit,
     reset
   };
 };
