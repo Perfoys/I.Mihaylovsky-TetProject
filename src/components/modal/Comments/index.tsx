@@ -20,13 +20,13 @@ type Inputs = {
 
 const Comments: FC<CommentsProps> = ({ task }) => {
   const { t } = useTranslation();
-  const { values, handleChange, handleSubmit, reset, errorMessage } = useForm({ text: '', name: 'named' });
+  const { values, handleChange, handleSubmit, handleReset, errorMessage } = useForm({ text: '' });
   const data: Inputs = { taskId: task.id, author: task.member, text: values.text };
   const dispatch = useDispatch();
 
   const onSubmit = () => {
     dispatch(addComment(data));
-    reset();
+    handleReset();
   };
 
   return (
@@ -39,7 +39,7 @@ const Comments: FC<CommentsProps> = ({ task }) => {
             styleClass={style.commentInput}
             inputType='text'
             inputName='text'
-            placeholder={t('modal.commentLeave')}
+            placeholder={t('modal.commentPlaceholder')}
             handleChange={handleChange}
             value={values.text}
             label={t('modal.commentsLabel')}

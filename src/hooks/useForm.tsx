@@ -17,7 +17,7 @@ const useForm = (defaultValues: Field) => {
     setState(state => ({ ...state, [name]: value }));
   }, []);
 
-  const reset = useCallback(() => {
+  const handleReset = useCallback(() => {
     setState(defaultValues);
   }, []);
 
@@ -55,7 +55,7 @@ const useForm = (defaultValues: Field) => {
     errorMessage: errors,
     handleChange,
     handleSubmit,
-    reset
+    handleReset
   };
 };
 
