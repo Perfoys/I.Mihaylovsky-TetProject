@@ -1,10 +1,11 @@
 import classNames from 'classnames';
 import React, { FC, useCallback, useState } from 'react';
 import style from './input.module.scss';
+import { InputType } from '../../../types/input';
 
 type InputProps = {
   styleClass?: string,
-  inputType: string,
+  inputType: InputType,
   inputName: string,
   placeholder?: string,
   value: string,

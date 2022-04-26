@@ -1,57 +1,75 @@
 import React, { useCallback, useState } from 'react';
+import validateEmail from '../helpers/validateEmail';
+import validateNumber from '../helpers/validateNumber';
+import validatePassword from '../helpers/validatePassword';
+import validateText from '../helpers/validateText';
 
 type Field = {
-  [key: string]: string
+  type: string,
+  value: string
 };
 
 type Error = {
   [key: string]: string
-}
+};
 
-const useForm = (defaultValues: Field) => {
-  const [state, setState] = useState(defaultValues);
+type FormProps = {
+  [key:string]: Field
+};
+
+const useForm = (defaultValues: FormProps) => {
+  const [values, setValues] = useState(defaultValues);
   const [errors, setErrors] = useState<Error>({});
 
   const handleChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    setState(state => ({ ...state, [name]: value }));
+    const field = { type: values[name].type, value };
+    setValues(state => ({ ...state, [name]: field }));
   }, []);
 
   const handleReset = useCallback(() => {
-    setState(defaultValues);
+    setValues(defaultValues);
   }, []);
 
-  const handleValidation = (data: object): boolean => {
-    let isValid = true;
+  const handleValidation = (data: FormProps): boolean => {
     const currentErrors: Error = {};
-    const values = Object.entries(data);
+    const fields = Object.entries(data);
 
-    values.forEach((value: [string, any]) => {
-      if (value[1].length === 0) {
-        isValid = false;
-        currentErrors[value[0]] = 'Input value can not be empty';
-      }
-      if (value[1].length > 120) {
-        isValid = false;
-        currentErrors[value[0]] = 'Value length can not be more than 120 symbols';
-      }
-      if (parseInt(value[1]) < 0) {
-        isValid = false;
-        currentErrors[value[0]] = 'Input number can not be negative';
+    fields.forEach((field: [string, Field]) => {
+      const key = field[0];
+      const { type, value } = field[1];
+      switch (type) {
+      case 'text':
+        currentErrors[key] = validateText(value);
+        break;
+      case 'email':
+        currentErrors[key] = validateEmail(value);
+        break;
+      case 'password':
+        currentErrors[key] = validatePassword(value);
+        break;
+      case 'number':
+        currentErrors[key] = validateNumber(value);
+        break;
+      default:
+        currentErrors[key] = validateText(value);
       }
     });
 
     setErrors(currentErrors);
-    return isValid;
+    if (Object.values(currentErrors).join('').length > 0) {
+      return false;
+    }
+    return true;
   };
 
   const handleSubmit = useCallback((onSubmit: React.FormEventHandler<HTMLFormElement>) => (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (handleValidation(state)) onSubmit(event);
-  }, [state]);
+    if (handleValidation(values)) onSubmit(event);
+  }, [values]);
 
   return {
-    values: state,
+    values,
     errorMessage: errors,
     handleChange,
     handleSubmit,

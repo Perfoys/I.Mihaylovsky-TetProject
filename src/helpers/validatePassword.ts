@@ -1,4 +1,4 @@
-const validatePassword = (value: string): boolean | string => {
+const validatePassword = (value: string): string => {
   if (value.length <= 6) {
     return 'Password should be longer than 6 symbols';
   } else if (value.length >= 20) {
@@ -6,7 +6,7 @@ const validatePassword = (value: string): boolean | string => {
   } else if (!value.match(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s)(?=.*[!@#$*])/)) {
     return 'Password is incorrect';
   }
-  return true;
+  return '';
 };
 
 export default validatePassword;
