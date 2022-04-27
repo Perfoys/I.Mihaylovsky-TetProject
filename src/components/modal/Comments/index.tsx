@@ -18,11 +18,12 @@ type Inputs = {
   text: string
 };
 
+const INPUT_NAME = 'text';
+const INPUT_TYPE = 'text';
+
 const Comments: FC<CommentsProps> = ({ task }) => {
-  const inputName = 'text';
-  const inputType = 'text';
   const { t } = useTranslation();
-  const { values, handleChange, handleSubmit, handleReset, errorMessage } = useForm({ text: { type: inputType, value: '' } });
+  const { values, handleChange, handleSubmit, handleReset, errorMessage } = useForm({ [INPUT_NAME]: { type: INPUT_TYPE, value: '' } });
   const data: Inputs = { taskId: task.id, author: task.member, text: values.text.value };
   const dispatch = useDispatch();
 
@@ -39,8 +40,8 @@ const Comments: FC<CommentsProps> = ({ task }) => {
         <Form handleSubmit={handleSubmit(onSubmit)}>
           <Input
             styleClass={style.commentInput}
-            inputType={inputType}
-            inputName={inputName}
+            inputType={INPUT_TYPE}
+            inputName={INPUT_NAME}
             value={values.text.value}
             handleChange={handleChange}
             placeholder={t('modal.commentPlaceholder')}

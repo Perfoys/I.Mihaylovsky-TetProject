@@ -36,8 +36,7 @@ const useForm = (defaultValues: FormProps) => {
     const fields = Object.entries(data);
 
     fields.forEach((field: [string, Field]) => {
-      const key = field[0];
-      const { type, value } = field[1];
+      const [key, { type, value }] = field;
       if (type === 'text') {
         currentErrors[key] = validateText(value);
       }
