@@ -38,21 +38,17 @@ const useForm = (defaultValues: FormProps) => {
     fields.forEach((field: [string, Field]) => {
       const key = field[0];
       const { type, value } = field[1];
-      switch (type) {
-      case 'text':
+      if (type === 'text') {
         currentErrors[key] = validateText(value);
-        break;
-      case 'email':
+      }
+      if (type === 'email') {
         currentErrors[key] = validateEmail(value);
-        break;
-      case 'password':
+      }
+      if (type === 'password') {
         currentErrors[key] = validatePassword(value);
-        break;
-      case 'number':
+      }
+      if (type === 'number') {
         currentErrors[key] = validateNumber(value);
-        break;
-      default:
-        currentErrors[key] = validateText(value);
       }
     });
 
