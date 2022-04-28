@@ -1,4 +1,3 @@
-import { act } from 'react-dom/test-utils';
 import { mount, ReactWrapper } from 'enzyme';
 import { Provider } from 'react-redux';
 import Comments from '.';
@@ -6,14 +5,6 @@ import { initialSprint } from '../../../data/initialSprint';
 import { addComment } from '../../../redux/reducers/sprintReducer';
 import store from '../../../redux/store';
 
-jest.mock('react-hook-form', () => ({
-  ...jest.requireActual('react-hook-form'),
-  useForm: () => ({
-    register: jest.fn(),
-    handleSubmit: jest.fn(),
-    reset: jest.fn()
-  })
-}));
 describe('Comments component testing', () => {
   let wrapper: ReactWrapper;
   const task = initialSprint.tasks[0];
@@ -43,22 +34,4 @@ describe('Comments component testing', () => {
     expect(comment).toHaveLength(1);
     expect(comment.childAt(1).text()).toEqual(task.comments[0].text);
   });
-  // TODO: test input change and form submit
-  /* test('Input comment form submits a new comment', async () => {
-    act(() => {
-      wrapper
-        .find('input')
-        .simulate('input', { target: { value: 'Test new comment' } })
-        .simulate('blur');
-    });
-    wrapper.update();
-    await act(async () => {
-      wrapper
-        .find('form')
-        .simulate('submit');
-    });
-    wrapper.update();
-    const comments = wrapper.find('div.comment');
-    expect(comments).toHaveLength(2);
-  }); */
 });

@@ -1,10 +1,12 @@
 import { FC } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { SubmitHandler, useForm } from 'react-hook-form';
 import { addComment } from '../../../redux/reducers/sprintReducer';
 import { ITaskInfo } from '../../../types/sprint';
+import useForm from '../../../hooks/useForm';
 import style from './comments.module.scss';
+import Input from '../../custom/Input';
+import Form from '../../custom/Form';
 
 type CommentsProps = {
   task: ITaskInfo
@@ -16,14 +18,18 @@ type Inputs = {
   text: string
 };
 
+const INPUT_NAME = 'text';
+const INPUT_TYPE = 'text';
+
 const Comments: FC<CommentsProps> = ({ task }) => {
   const { t } = useTranslation();
-  const { register, handleSubmit, reset } = useForm<Inputs>({ defaultValues: { taskId: task.id, author: task.member } });
+  const { values, handleChange, handleSubmit, handleReset, errorMessage } = useForm({ [INPUT_NAME]: { type: INPUT_TYPE, value: '' } });
+  const data: Inputs = { taskId: task.id, author: task.member, text: values.text.value };
   const dispatch = useDispatch();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
+  const onSubmit = () => {
     dispatch(addComment(data));
-    reset();
+    handleReset();
   };
 
   return (
@@ -31,10 +37,18 @@ const Comments: FC<CommentsProps> = ({ task }) => {
       <h2 className={style.title}>{t('modal.commentsTitle')}</h2>
       <div className={style.form}>
         <img className={style.image} src={task.image} alt='avatar' />
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <input className={style.input} {...register('text', { required: true })} placeholder={t('modal.commentLeave')} />
-          <label>{t('modal.commentsLabel')}</label>
-        </form>
+        <Form handleSubmit={handleSubmit(onSubmit)}>
+          <Input
+            styleClass={style.commentInput}
+            inputType={INPUT_TYPE}
+            inputName={INPUT_NAME}
+            value={values.text.value}
+            handleChange={handleChange}
+            placeholder={t('modal.commentPlaceholder')}
+            label={t('modal.commentsLabel')}
+            error={errorMessage.text}
+          />
+        </Form>
       </div>
       <div className={style.history}>
         {task.comments.map(comment => (

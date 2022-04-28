@@ -15,6 +15,6 @@
     "commentsTitle": "Comments",
     "assigne": "Assigne",
     "commentsLabel": "Press Enter to add a comment",
-    "commentLeave": "Leave a comment..."
+    "commentPlaceholder": "Leave a comment..."
   }
 }

@@ -15,6 +15,6 @@
     "commentsTitle": "Комментарии",
     "assigne": "Участник",
     "commentsLabel": "Нажмите Enter для добавления комментария",
-    "commentLeave": "Оставьте комментарий..."
+    "commentPlaceholder": "Оставьте комментарий..."
   }
 }

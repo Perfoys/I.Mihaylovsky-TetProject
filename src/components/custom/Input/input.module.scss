@@ -1,0 +1,12 @@
+@import '../../../styles/variables.scss';
+
+.input {
+  display: block;
+  font-size: $input-size;
+  height: $input-height;
+  border-radius: $border-radius;
+}
+
+.error {
+  color: $error-color;
+}
